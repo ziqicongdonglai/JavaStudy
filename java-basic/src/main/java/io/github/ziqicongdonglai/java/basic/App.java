@@ -13,6 +13,6 @@ public class App {
         int[] arr = {1, 2, 3, 4, 5};
         ArrayDemo ad = new ArrayDemo();
         int sum = ad.getSum(arr);
-        System.out.println("sum = " + sum);
+        System.out.println("sum = git" + sum);
     }
 }
