@@ -1,4 +1,4 @@
-package io.github.ziqicongdonglai.java.basic.array;
+package io.github.ziqicongdonglai.java.basic.day01;
 
 /**
  * @author ke_zhang

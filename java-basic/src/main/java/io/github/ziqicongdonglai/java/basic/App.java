@@ -1,6 +1,6 @@
 package io.github.ziqicongdonglai.java.basic;
 
-import io.github.ziqicongdonglai.java.basic.array.ArrayDemo;
+import io.github.ziqicongdonglai.java.basic.day01.ArrayDemo;
 
 /**
  * @author ke_zhang
