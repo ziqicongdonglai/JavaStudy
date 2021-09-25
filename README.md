@@ -2,42 +2,47 @@
 
 > 本仓库主要包含以下模块
 
-## 1.java-basic
+## java-basic
 
-Java基础部分（常量变量、运算符、程序结构、数组、枚举、编程规范等）学习模块
+Java基础特性学习
 
-## 2.java-jfx
+## java-oop
 
-JavaFX布局、样式、事件、MVC、各种拓展等学习模块
+Java面向对象学习
 
-## 3.java-oop
+## java-advanced
 
-Java面向对象核心学习模块
+Java高级特性学习
 
-## 4.java-lang
+## java-jvm
 
-java.lang包常用类学习模块（String、装拆箱、Class类、反射、线程等）
+Java虚拟机学习
 
-## 5.java-util
+## java-jfx
 
-Java常用工具学习模块（JDK的util包、常用的第三方工具包hutool、guava、Commonslang3等）
+JavaFX学习
 
-## 6.java-collection
+## java-container
 
-Java集合框架学习模块（Collection、List、Set、Map）
+Java容器学习
 
-## 7.java-io
+## java-util
 
-Java IO学习模块（File、IO、NIO）
+Java常用工具学习
 
-## 8.java-jdk8
+## java-io
 
-jdk8特性学习模块（Lambda、Functional、新的日期时间API、concurrent等）
+Java IO学习
 
-## 9.java-net
+## java-jdk8
 
-Java网络编程学习模块（Socket套接字编程、UDP、SMTP、HTTP等编程）
+jdk8特性学习
 
-## 10.java-database
+## java-concurrent
 
-Java数据库编程（关系式、非关系式）
+Java并发编程学习
+
+## java-effective
+
+Java高效编程学习
+
