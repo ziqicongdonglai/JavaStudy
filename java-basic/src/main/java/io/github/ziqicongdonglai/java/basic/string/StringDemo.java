@@ -1,4 +1,4 @@
-package io.github.ziqicongdonglai.java.basic.day02;
+package io.github.ziqicongdonglai.java.basic.string;
 
 import java.util.Scanner;
 
