@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+
+<!--垂直布局容器，元素之间间距为20，对齐方式底部居右-->
+<VBox fx:id="rootPane"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      spacing="120" alignment="TOP_CENTER"
+      fx:controller="io.github.ziqicongdonglai.java.jfx.ctrl.MainCtrl">
+    <!--内边距-->
+    <padding>
+        <Insets top="50"/>
+    </padding>
+    <VBox alignment="TOP_RIGHT">
+        <!--内边距-->
+        <padding>
+            <Insets right="50"/>
+        </padding>
+        <!--ImageView容器指定大小，内部图片适应其大小-->
+        <ImageView fitWidth="100" fitHeight="100" styleClass="avatar">
+            <Image url="https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/avatar.jpg"/>
+        </ImageView>
+    </VBox>
+    <!--label使用main.css中的样式-->
+    <Label text="JavaFx 11 + JDK 11" styleClass="title"/>
+    <VBox alignment="BOTTOM_CENTER">
+        <!--button使用main.css中的样式，如果用style=""的形式，就是内联样式-->
+        <Button fx:id="btnAlert" text="请点击！" onAction="#onBtnAlertClick" styleClass="btn"/>
+    </VBox>
+</VBox>
