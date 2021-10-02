@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // 加载并创建主场景
-        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/main.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/login.fxml")));
         // 加载外部样式，这样窗口中所有组件可用，绑定在fxml组件上的样式只能本组件可用
         root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/main.css")).toExternalForm());
         Scene scene = new Scene(root, AppConfig.stageWidth, AppConfig.stageHeight);

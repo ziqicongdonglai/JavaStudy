@@ -1,6 +1,6 @@
 .root {
-    -fx-background-image: url(../img/bg.jpg);
-    -fx-background-size: cover;
+    /*-fx-background-image: url(../img/bg.jpg);*/
+    /*-fx-background-size: cover;*/
 }
 
 .title {
@@ -13,6 +13,10 @@
     -fx-border-radius: 25;
 }
 
+.login {
+    -fx-background-color: #fff;
+}
+
 
 .btn {
     -fx-min-width: 100;
@@ -20,4 +24,67 @@
     -fx-background-color: #a8dc61;
     -fx-text-fill: #f6f6f6;
     -fx-font-size: 16;
+}
+
+/*Flat button example */
+.btn-code {
+    -jfx-button-type: FLAT;
+    -fx-background-color: #f2f2f2;
+    -fx-text-fill: black;
+}
+
+.nav-right {
+    -fx-background-image: url(https://user.48.cn/Public/common/image/login/logo-snh48-group.png);
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+/*Raised button example */
+.btn-login {
+    -jfx-button-type: RAISED;
+    -fx-background-color: #89c7ff;
+    -fx-text-fill: white;
+}
+
+.copyright {
+    -fx-text-fill: #777b7d;
+}
+
+.login-bg {
+    -fx-background-color: #badef2;
+    -fx-background-image: url(https://user.48.cn/Public/common/image/login/bg-banner.png);
+    -fx-background-size: 20%;
+    /* x和y轴平铺 */
+    -fx-background-repeat: repeat;
+}
+
+.bar-bottom {
+    -fx-background-color: #fff;
+}
+
+.nav {
+    -fx-background-color: #fff;
+}
+
+.brand {
+    -fx-scale-x: 80%;
+    -fx-scale-y: 80%;
+}
+
+.text-field {
+    -fx-border-width: 1;
+    -fx-border-color: #f1f1f1;
+}
+
+.text-field-input {
+    -fx-focus-traversable: false;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+.phone-head {
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #f1f1f1;
 }
