@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="60.0" prefWidth="387.0" styleClass="card" stylesheets="@../css/card.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.ziqicongdonglai.java.jfx.ctrl.GameCtrl">
+   <children>
+      <Label layoutX="28.0" layoutY="22.0" styleClass="font-color" text="Start" />
+   </children>
+</AnchorPane>

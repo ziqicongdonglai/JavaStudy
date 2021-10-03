@@ -39,6 +39,11 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+/*.jfx-button {*/
+/*    -jfx-button-type: RAISED;*/
+/*    -fx-background-color: #89c7ff;*/
+/*    -fx-text-fill: white;*/
+/*}*/
 
 /*Raised button example */
 .btn-login {

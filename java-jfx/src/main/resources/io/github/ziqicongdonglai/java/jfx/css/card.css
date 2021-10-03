@@ -1,0 +1,12 @@
+.card {
+    -fx-background-color: linear-gradient(to right, rgb(30, 60, 114), rgb(42, 82, 152));
+}
+
+.card:hover {
+    -fx-background-color: linear-gradient(to right, rgb(44, 101, 201), rgb(127, 165, 222));
+    -fx-font-weight: 900;
+}
+
+.font-color {
+    -fx-text-fill: #fff;
+}

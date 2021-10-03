@@ -2,6 +2,8 @@ module java.jfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.jfoenix;
+    requires javafx.web;
+    requires AnimateFX;
 
 
     opens io.github.ziqicongdonglai.java.jfx.ctrl to javafx.fxml;

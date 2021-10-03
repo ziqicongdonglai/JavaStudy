@@ -1,6 +1,6 @@
 package io.github.ziqicongdonglai.java.jfx.config;
 
-import io.github.ziqicongdonglai.java.jfx.App;
+import io.github.ziqicongdonglai.java.jfx.GameApp;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +36,7 @@ public class AppConfig {
     public static void init() {
         try {
             Properties properties = new Properties();
-            InputStream in = App.class.getResourceAsStream("app.properties");
+            InputStream in = GameApp.class.getResourceAsStream("app.properties");
             properties.load(in);
             title = properties.getProperty("title");
             icon = properties.getProperty("icon");
