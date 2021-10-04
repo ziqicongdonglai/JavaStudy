@@ -8,4 +8,7 @@ module java.jfx {
 
     opens io.github.ziqicongdonglai.java.jfx.ctrl to javafx.fxml;
     exports io.github.ziqicongdonglai.java.jfx;
+
+    opens io.github.ziqicongdonglai.java.jfx.layout to javafx.fxml;
+    exports io.github.ziqicongdonglai.java.jfx.layout;
 }
