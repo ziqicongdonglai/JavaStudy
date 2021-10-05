@@ -60,7 +60,7 @@
 
 .bg {
     -fx-border-width: 0;
-    -fx-background-image: url(../img/bg.jpeg);
+    -fx-background-image: url(../img/bg.jpg);
     -fx-background-size: cover;
 }
 
