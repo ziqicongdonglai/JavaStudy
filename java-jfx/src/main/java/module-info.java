@@ -14,4 +14,7 @@ module java.jfx {
 
     opens io.github.ziqicongdonglai.java.jfx.basic to javafx.fxml;
     exports io.github.ziqicongdonglai.java.jfx.basic;
+
+    opens io.github.ziqicongdonglai.java.jfx.effect to javafx.fxml;
+    exports io.github.ziqicongdonglai.java.jfx.effect;
 }

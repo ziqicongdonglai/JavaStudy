@@ -21,7 +21,7 @@ public class ColorExample extends Application {
         // Drawing a Circle
         Circle circle = new Circle();
         circle.setCenterX(300.0f);
-        circle.setCenterY(100.0f);
+        circle.setCenterY(200.0f);
         circle.setRadius(90.0f);
 
         // Setting color and stroke to the circle
