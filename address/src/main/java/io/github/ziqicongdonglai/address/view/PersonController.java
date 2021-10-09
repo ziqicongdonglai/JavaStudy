@@ -4,15 +4,24 @@ package io.github.ziqicongdonglai.address.view;
 import io.github.ziqicongdonglai.address.MainApp;
 import io.github.ziqicongdonglai.address.model.Person;
 import io.github.ziqicongdonglai.address.util.DateUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PersonController {
+    @FXML
+    private TextField inputField;
+
     @FXML
     private TableView<Person> personTable;
 
@@ -52,15 +61,48 @@ public class PersonController {
         clazzColumn.setCellValueFactory(cellData -> cellData.getValue().clazzProperty());
         showPersonDetails(null);
         personTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable,oldValue, newValue) -> showPersonDetails(newValue));
+                (observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-        ObservableList<Person> personDate = mainApp.getPersonDate();
-        personTable.setItems(personDate);
+        ObservableList<Person> personData = mainApp.getPersonDate();
+        //personTable.setItems(personData);
+        //showPersonDetails(personData.get(0));
+        FilteredList<Person> filteredData = new FilteredList<>(personData, p -> true);
+        inputField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return person.getName().toLowerCase().contains(lowerCaseFilter)
+                        || person.getGender().toLowerCase().contains(lowerCaseFilter)
+                        || person.getClazz().toLowerCase().contains(lowerCaseFilter)
+                        || person.getAddress().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+        personTable.setItems(filteredData);
     }
 
+    public void handleSearchPerson() {
+        String keywords = inputField.getText().trim();
+        ObservableList<Person> items = personTable.getItems();
+        List<Person> list = items.stream()
+                .filter(p -> p.getName().contains(keywords) || p.getClazz().contains(keywords))
+                .collect(Collectors.toList());
+        if (list.size() != 0) {
+            personTable.setItems(FXCollections.observableList(list));
+            showPersonDetails(list.get(0));
+        }
+        inputField.setText("");
+    }
+
+    /**
+     * 显示用户详情
+     *
+     * @param person person
+     */
     private void showPersonDetails(Person person) {
         if (person != null) {
             nameLabel.setText(person.getName());
