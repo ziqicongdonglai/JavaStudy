@@ -8,10 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -19,6 +16,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PersonController {
+    private MainApp mainApp;
+
+    private FilteredList<Person> filteredData;
+
     @FXML
     private TextField inputField;
 
@@ -49,8 +50,6 @@ public class PersonController {
     @FXML
     private ImageView avatar;
 
-    private MainApp mainApp;
-
     public PersonController() {
 
     }
@@ -64,12 +63,14 @@ public class PersonController {
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
 
+    /**
+     * 接收主窗体对象，获取数据
+     *
+     * @param mainApp
+     */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-        ObservableList<Person> personData = mainApp.getPersonDate();
-        //personTable.setItems(personData);
-        //showPersonDetails(personData.get(0));
-        FilteredList<Person> filteredData = new FilteredList<>(personData, p -> true);
+        filteredData = new FilteredList<>(mainApp.getPersonData(), p -> true);
         inputField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(person -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -77,14 +78,17 @@ public class PersonController {
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
                 return person.getName().toLowerCase().contains(lowerCaseFilter)
-                        || person.getGender().toLowerCase().contains(lowerCaseFilter)
                         || person.getClazz().toLowerCase().contains(lowerCaseFilter)
                         || person.getAddress().toLowerCase().contains(lowerCaseFilter);
             });
         });
         personTable.setItems(filteredData);
+        showPersonDetails(filteredData.get(0));
     }
 
+    /**
+     * 查询用户
+     */
     public void handleSearchPerson() {
         String keywords = inputField.getText().trim();
         ObservableList<Person> items = personTable.getItems();
@@ -112,12 +116,33 @@ public class PersonController {
             birthdayLabel.setText(DateUtil.format(person.getBirthday()));
             avatar.setImage(person.getAvatar());
         } else {
-            nameLabel.setText("");
-            clazzLabel.setText("");
-            genderLabel.setText("");
-            addressLabel.setText("");
-            birthdayLabel.setText("");
+            nameLabel.setText("姓名");
+            clazzLabel.setText("班级");
+            genderLabel.setText("性别");
+            addressLabel.setText("地址");
+            birthdayLabel.setText("生日");
             avatar.setImage(new Image("https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/avatar.jpg"));
         }
+    }
+
+    /**
+     * 删除用户
+     */
+    public void handleDeletePerson() {
+        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            mainApp.getPersonData().remove(selectedIndex);
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("提示");
+            a.setHeaderText("错误操作");
+            a.setContentText("必须选择人员才能删除");
+            a.showAndWait();
+        }
+    }
+
+    public void handleNewPerson() {
+        mainApp.showNewPersonStage();
+        mainApp.getStage().setIconified(true);
     }
 }

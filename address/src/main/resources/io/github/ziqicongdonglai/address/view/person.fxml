@@ -82,9 +82,9 @@
                   <HBox alignment="CENTER" layoutX="21.0" layoutY="291.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                      <children>
                         <Button mnemonicParsing="false" styleClass="btn" text="Reset" />
-                        <Button mnemonicParsing="false" styleClass="btn" text="New" />
+                        <Button mnemonicParsing="false" onAction="#handleNewPerson" styleClass="btn" text="New" />
                         <Button mnemonicParsing="false" styleClass="btn" text="Edit" />
-                        <Button mnemonicParsing="false" styleClass="btn" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#handleDeletePerson" styleClass="btn" text="Delete" />
                      </children>
                   </HBox>
                </children></AnchorPane>
