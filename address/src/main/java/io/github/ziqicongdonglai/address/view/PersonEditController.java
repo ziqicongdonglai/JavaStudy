@@ -1,16 +1,14 @@
 package io.github.ziqicongdonglai.address.view;
 
 import io.github.ziqicongdonglai.address.MainApp;
+import io.github.ziqicongdonglai.address.config.AppConstant;
 import io.github.ziqicongdonglai.address.model.Person;
-import io.github.ziqicongdonglai.address.util.DateUtil;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
-import javafx.stage.Stage;
 
 /**
  * @author ke_zhang
@@ -19,11 +17,11 @@ import javafx.stage.Stage;
  */
 public class PersonEditController {
 
-
-    private Stage editStage;
-
     private MainApp mainApp;
 
+    private Person person;
+
+    private String type;
 
     @FXML
     private TextField nameField;
@@ -44,9 +42,6 @@ public class PersonEditController {
     private TextField addressField;
 
     @FXML
-    private TextField birthdayField;
-
-    @FXML
     private DatePicker birthdayPicker;
 
     @FXML
@@ -54,35 +49,47 @@ public class PersonEditController {
 
     @FXML
     private void initialize() {
-    }
-
-    public void setEditStage(Stage editStage) {
-        this.editStage = editStage;
+        person = new Person();
+        group.selectedToggleProperty().addListener((ob, oldValue, newValue) -> {
+            RadioButton radioButton = (RadioButton) group.getSelectedToggle();
+            if (radioButton != null) {
+                person.setGender(radioButton.getText());
+            }
+        });
     }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 
-    public void handleSubmit(ActionEvent actionEvent) {
-        Person person = new Person();
+    public void setArgs(Person person, String type) {
+        this.person = person;
+        this.type = type;
+        nameField.setText(person.getName());
+        clazzField.setText(person.getClazz());
+        group.getToggles().forEach(toggle -> {
+            if (toggle.getUserData().toString().equals(person.getGender())) {
+                toggle.setSelected(true);
+            }
+        });
+        addressField.setText(person.getAddress());
+        avatarField.setText(person.getAvatar().getUrl());
+        birthdayPicker.setValue(person.getBirthday());
+    }
+
+    public void handleSubmit() {
         person.setName(nameField.getText());
         person.setClazz(clazzField.getText());
         person.setAddress(addressField.getText());
         person.setAvatar(new Image(avatarField.getText()));
-        person.setBirthday(DateUtil.parse(birthdayField.getText()));
-        //person.setBirthday(DateUtil.parse(String.valueOf(birthdayPicker.getValue())));
-        //注意性别单选按钮的写法
-        group.selectedToggleProperty().addListener((ov, oldVal, newVal) -> {
-            person.setGender(group.getSelectedToggle().getUserData().toString());
-        });
-        mainApp.getPersonData().add(person);
-        editStage.close();
-        mainApp.getStage().setIconified(false);
+        person.setBirthday(birthdayPicker.getValue());
+        if (this.type.equals(AppConstant.NEW_PERSON)) {
+            mainApp.getPersonData().add(person);
+        }
+        mainApp.showPerson();
     }
 
-    public void handleCancel(ActionEvent actionEvent) {
-        editStage.close();
-        mainApp.getStage().setIconified(false);
+    public void handleCancel() {
+        mainApp.showPerson();
     }
 }

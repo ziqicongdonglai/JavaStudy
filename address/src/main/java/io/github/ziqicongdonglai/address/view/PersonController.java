@@ -2,6 +2,7 @@ package io.github.ziqicongdonglai.address.view;
 
 
 import io.github.ziqicongdonglai.address.MainApp;
+import io.github.ziqicongdonglai.address.config.AppConstant;
 import io.github.ziqicongdonglai.address.model.Person;
 import io.github.ziqicongdonglai.address.util.DateUtil;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -141,8 +143,30 @@ public class PersonController {
         }
     }
 
+    /**
+     * 新增人员
+     */
     public void handleNewPerson() {
-        mainApp.showNewPersonStage();
-        mainApp.getStage().setIconified(true);
+        Person tempPerson = new Person(
+                "zk", "软件", "女", "江苏南京",
+                LocalDate.of(2000, 1, 1),
+                new Image("https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/avatar.jpg"));
+        mainApp.showEditPerson(tempPerson, AppConstant.NEW_PERSON);
+    }
+
+    /**
+     * 编辑人员
+     */
+    public void handleEditPerson() {
+        Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+        if (selectedPerson != null) {
+            mainApp.showEditPerson(selectedPerson, AppConstant.EDIT_PERSON);
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("提示");
+            a.setHeaderText("错误操作");
+            a.setContentText("必须选择人员才能编辑");
+            a.showAndWait();
+        }
     }
 }

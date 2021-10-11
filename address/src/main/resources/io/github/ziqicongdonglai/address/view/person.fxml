@@ -73,17 +73,16 @@
                             </clip>
                         </ImageView>
                         <Label fx:id="nameLabel" text="Label" GridPane.rowIndex="2" />
-                        <Label fx:id="clazzLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="genderLabel" text="Label" visible="false" GridPane.rowIndex="3" />
+                        <Label fx:id="clazzLabel" text="Label" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="genderLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="addressLabel" text="Label" GridPane.rowIndex="3" />
                         <Label fx:id="birthdayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <HBox alignment="CENTER" layoutX="21.0" layoutY="291.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="21.0" layoutY="291.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="btn" text="Reset" />
                         <Button mnemonicParsing="false" onAction="#handleNewPerson" styleClass="btn" text="New" />
-                        <Button mnemonicParsing="false" styleClass="btn" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" styleClass="btn" text="Edit" />
                         <Button mnemonicParsing="false" onAction="#handleDeletePerson" styleClass="btn" text="Delete" />
                      </children>
                   </HBox>

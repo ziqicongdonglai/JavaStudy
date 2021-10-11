@@ -6,8 +6,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
             prefHeight="600.0" prefWidth="800.0"
-            stylesheets="@../css/style.css">
-
+            fx:controller="io.github.ziqicongdonglai.address.view.RootController" >
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: transparent;"
+              prefHeight="50">
+            <Button mnemonicParsing="false" styleClass="btn"
+                    onAction="#handleShowBirthdayStatistics" text="生日统计"/>
+            <padding>
+                <Insets left="80.0" top="20.0" />
+            </padding>
+        </HBox>
+    </top>
 </BorderPane>

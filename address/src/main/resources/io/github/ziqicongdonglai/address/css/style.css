@@ -9,6 +9,15 @@
     -fx-background-radius: 20px;
 }
 
+/*分割面板，设置水平分割条透明*/
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+.split-pane:vertical > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+
 .title {
     -fx-text-fill: #2c3f40;
     -fx-font-size: 15;
