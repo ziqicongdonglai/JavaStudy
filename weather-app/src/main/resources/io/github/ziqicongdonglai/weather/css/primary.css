@@ -1,0 +1,11 @@
+.root {
+    -fx-background-color: #73a5c5;
+}
+
+.title {
+    -fx-font-weight: 900;
+}
+
+.weather-detail-text {
+    -fx-font-weight: 900;
+}
