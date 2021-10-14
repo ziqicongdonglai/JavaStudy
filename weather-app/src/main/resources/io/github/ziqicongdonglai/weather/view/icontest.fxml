@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<HBox alignment="CENTER_LEFT" spacing="20"
+      stylesheets="@../css/style.css"
+      styleClass="icon-root"
+      xmlns="http://javafx.com/javafx/17.0.0.1">
+    <padding>
+        <Insets left="30.0" right="30.0"/>
+    </padding>
+
+    <!--不加StackedFontIcon没法设置大小,放在一个StackedFontIcon里面的图标会呈现堆叠效果-->
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#07140b" iconLiteral="mdi-airplay"/>
+        <FontIcon iconColor="#ca52a2" iconLiteral="mdi-adjust" StackedFontIcon.iconSize="0.5"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#36a4a4" iconLiteral="mdi-android-debug-bridge"/>
+    </StackedFontIcon>
+
+    <!--这个图标只能默认大小-->
+    <FontIcon iconColor="#d75157" iconLiteral="mdi-account-box"/>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#36a4a4" iconLiteral="mdi-emoticon-happy"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#ed8d13" iconLiteral="mdi-weather-sunny"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#3eb25e" iconLiteral="mdi-android"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#20140b" iconLiteral="mdi-hotel"/>
+    </StackedFontIcon>
+
+    <!--带字体图标的按钮-->
+    <Button prefHeight="40" prefWidth="90" style="-fx-font-size: 16;-fx-background-color: #579ebb;-fx-cursor: hand;"
+            text="下载">
+        <graphic>
+            <StackedFontIcon iconSize="24">
+                <FontIcon iconColor="#f6f6f6" iconLiteral="mdi-cloud-download"/>
+            </StackedFontIcon>
+        </graphic>
+    </Button>
+</HBox>

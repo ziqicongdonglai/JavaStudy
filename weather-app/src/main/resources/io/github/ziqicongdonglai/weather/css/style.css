@@ -9,3 +9,7 @@
 .weather-detail-text {
     -fx-font-weight: 900;
 }
+
+.icon-root {
+     -fx-background-color: #7fcc9a;
+}
