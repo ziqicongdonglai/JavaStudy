@@ -4,6 +4,8 @@ module java.jfx {
     requires com.jfoenix;
     requires javafx.web;
     requires AnimateFX;
+    requires com.github.oshi;
+    requires fastjson;
 
 
     opens io.github.ziqicongdonglai.java.jfx.ctrl to javafx.fxml;
