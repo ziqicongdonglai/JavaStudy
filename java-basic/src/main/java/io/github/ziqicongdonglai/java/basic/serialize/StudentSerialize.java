@@ -43,7 +43,7 @@ public class StudentSerialize {
      *
      * @throws IOException IO异常
      */
-    public static void externalizable() throws IOException {
+    public static void externaliz() throws IOException {
         UserInfo userInfo = new UserInfo();
         userInfo.setUserName("Java学习者");
         userInfo.setUseAge(20);
@@ -59,7 +59,7 @@ public class StudentSerialize {
         System.out.println("========================================");
     }
 
-    public static void deExternalizable() throws IOException, ClassNotFoundException {
+    public static void deExternaliz() throws IOException, ClassNotFoundException {
         ObjectInputStream objectInputStream =
                 new ObjectInputStream(new FileInputStream("userInfo.txt"));
         UserInfo userInfo = (UserInfo) objectInputStream.readObject();
@@ -76,8 +76,8 @@ public class StudentSerialize {
          deserialize();
 
         // 先执行序列化
-        //externalizable();
+        //externaliz();
         // 成功后看到生成了userInfo.txt再执行下面的反序列化
-        // deExternalizable();
+        // deExternaliz();
     }
 }
