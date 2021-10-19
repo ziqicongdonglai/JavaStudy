@@ -87,14 +87,14 @@ public class URLRegEx {
             String url = bfr.readLine();
             ArrayList<String> imgList = URLRegEx.getImgList(url);
             System.out.println(imgList);
-            //for (String imgUrl : imgList) {
-            //    System.out.println(imgUrl);
-            //}
-            PrintStream printStream =
-                    new PrintStream(new FileOutputStream("imgList.txt"));
-            printStream.print(imgList);
-            printStream.close();
-            System.out.println("生成imgList.txt文件");
+            try {
+                PrintStream printStream = new PrintStream(new FileOutputStream("imgList.txt"));
+                printStream.print(imgList);
+                printStream.close();
+                System.out.println("生成imgList.txt文件");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
