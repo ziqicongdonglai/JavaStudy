@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../css/style.css"
+            fx:controller="io.github.ziqicongdonglai.notepad.view.NotepadController">
+    <!--菜单-->
+    <MenuBar prefHeight="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Menu mnemonicParsing="false" text="文件">
+            <MenuItem mnemonicParsing="false" onAction="#openFile" text="打开"/>
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="保存"/>
+            <MenuItem mnemonicParsing="false" onAction="#close" text="关闭"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="关于">
+            <MenuItem mnemonicParsing="false" onAction="#about" text="关于"/>
+        </Menu>
+    </MenuBar>
+
+    <!--内容区-->
+    <TextArea fx:id="textArea"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+        <contextMenu>
+            <ContextMenu>
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Unspecified Action"/>
+                </items>
+            </ContextMenu>
+        </contextMenu>
+    </TextArea>
+</AnchorPane>

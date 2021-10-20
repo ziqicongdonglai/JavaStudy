@@ -1,0 +1,13 @@
+.menu-bar {
+    -fx-background-color: #7fc4e1;
+}
+
+
+.text-area {
+    -fx-font-size: 20;
+    -fx-text-fill: #f6f6f6;
+}
+
+.text-area .content {
+    -fx-background-color: #579ebb;
+}
