@@ -11,7 +11,8 @@
 <AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="415" prefWidth="540"
             stylesheets="@./css/login.css"
-            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.ziqicongdonglai.chat.ui.view.login.LoginView">
     <!-- 操作栏；最小化、关闭 -->
     <AnchorPane id="operation" prefHeight="160" prefWidth="540"
                 AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -21,9 +22,9 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Button id="login_min" prefHeight="32" prefWidth="43" styleClass="min"
+        <Button id="loginMin" prefHeight="32" prefWidth="43" styleClass="min"
                 AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
-        <Button id="login_close" prefHeight="32" prefWidth="43" styleClass="close"
+        <Button id="loginClose" prefHeight="32" prefWidth="43" styleClass="close"
                 AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
     </AnchorPane>
 
@@ -45,7 +46,7 @@
         </padding>
     </PasswordField>
 
-    <Button id="login_button" prefHeight="45" prefWidth="250" styleClass="login_button" text="登 陆"
+    <Button id="loginButton" prefHeight="45" prefWidth="250" styleClass="login_button" text="登 陆"
             AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="90.0" />
 
     <Label id="slogan" prefHeight="15" prefWidth="200.0" text="v1.0 | https://com.myblog"

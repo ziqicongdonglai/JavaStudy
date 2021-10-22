@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="chat" prefHeight="720.0" prefWidth="980.0"
+      stylesheets="@./css/chat.css" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <!-- 控制栏 -->
+    <Pane id="bar" prefHeight="720.0" prefWidth="76">
+        <!-- 头像 -->
+        <Button id="barPortrait" layoutX="13" layoutY="23" mnemonicParsing="false" prefHeight="50" prefWidth="50"/>
+
+        <!-- 聊天 -->
+        <Button id="barChat" layoutX="23" layoutY="100" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+
+        <!-- 好友 -->
+        <Button id="barFriend" layoutX="23" layoutY="160" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+
+        <!-- 收藏 -->
+        <Button id="barLocation" layoutX="23" layoutY="220" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+
+        <!-- 设置 -->
+        <Button id="barSet" layoutX="28.0" layoutY="663.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="20"/>
+    </Pane>
+
+    <!-- groupBarChat -->
+    <Pane id="groupBarChat" layoutX="76" layoutY="1" prefHeight="720.0" prefWidth="980.0"
+          style="-fx-background-color:#D2A5C3;">
+    </Pane>
+
+    <!-- groupBarFriend -->
+    <Pane id="groupBarFriend" layoutX="76" layoutY="1" prefHeight="720.0" prefWidth="980.0"
+          style="-fx-background-color:#6092b6;" visible="false">
+    </Pane>
+</Pane>

@@ -1,0 +1,110 @@
+/* 控制栏 */
+#bar {
+    -fx-background-color: #28282c;
+    -fx-background-radius: 4px 0px 0px 4px;
+}
+
+/* 头像 */
+#barPortrait, #barPortrait:hover, #barPortrait:pressed {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50px 50px;
+    -fx-background-color: white;
+    -fx-background-image: url("../img/head/me.jpg");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: white;
+}
+
+/* 聊天 */
+#barChat {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30px 30px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../img/system/chat_0.png");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+}
+
+#barChat:hover {
+    -fx-background-image: url("../img/system/chat_1.png");
+}
+
+#barChat:pressed {
+    -fx-background-image: url("../img/system/chat_2.png");
+}
+
+
+/* 好友 */
+#barFriend {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30px 30px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../img/system/friend_0.png");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+}
+
+#barFriend:hover {
+    -fx-background-image: url("../img/system/friend_1.png");
+}
+
+#barFriend:pressed {
+    -fx-background-image: url("../img/system/friend_2.png");
+}
+
+
+/* 收藏 */
+#barLocation {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30px 30px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../img/system/location_0.png");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+}
+
+#barLocation:hover {
+    -fx-background-image: url("../img/system/location_1.png");
+}
+
+#barLocation:pressed {
+    -fx-background-image: url("../img/system/location_2.png");
+}
+
+
+/* 设置 */
+#barSet {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20px 20px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../img/system/set_0.png");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+}
+
+#barSet:hover {
+    -fx-background-image: url("../img/system/set_1.png");
+}
+
+#barSet:pressed {
+    -fx-background-image: url("../img/system/set_2.png");
+}

@@ -1,25 +1,34 @@
 package io.github.ziqicongdonglai.chat.ui;
 
+import io.github.ziqicongdonglai.chat.ui.view.chat.ChatController;
+import io.github.ziqicongdonglai.chat.ui.view.chat.IChatMethod;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+/**
+ * 启动主类
+ */
 public class Main extends Application {
+
+    //@Override
+    //public void start(Stage stage) throws IOException {
+    //    ILoginMethod login = new LoginController((userId, userPassword) -> {
+    //        System.out.println("登录 userId：" + userId + "userPassword：" + userPassword);
+    //    });
+    //
+    //    login.doShow();
+    //}
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/login/login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 540, 420);
-        stage.setTitle("Login");
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        stage.show();
+        IChatMethod chat = new ChatController();
+        chat.doShow();
     }
 
+
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
