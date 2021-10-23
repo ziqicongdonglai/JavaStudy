@@ -1,39 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<Pane id="chat" prefHeight="720.0" prefWidth="980.0"
-      stylesheets="@./css/chat.css" xmlns="http://javafx.com/javafx/17"
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<Pane id="chat" prefHeight="780.0" prefWidth="1240.0"
+      stylesheets="@css/chat.css" xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1">
     <!-- 控制栏 -->
-    <Pane id="bar" prefHeight="720.0" prefWidth="76">
+    <Pane id="bar" prefHeight="780.0" prefWidth="76">
         <!-- 头像 -->
         <Button id="barPortrait" layoutX="13" layoutY="23" mnemonicParsing="false" prefHeight="50" prefWidth="50"/>
 
         <!-- 聊天 -->
-        <Button id="barChat" layoutX="23" layoutY="100" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+        <Button id="barChat" layoutX="15" layoutY="100" mnemonicParsing="false" prefHeight="30" prefWidth="30"
+                styleClass="bar">
+            <graphic>
+                <StackedFontIcon iconSize="32">
+                    <FontIcon iconColor="#A8DC61" iconLiteral="mdi-access-point"/>
+                </StackedFontIcon>
+            </graphic>
+        </Button>
 
         <!-- 好友 -->
-        <Button id="barFriend" layoutX="23" layoutY="160" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+        <Button id="barFriend" layoutX="15" layoutY="160" mnemonicParsing="false" prefHeight="30" prefWidth="30"
+                styleClass="bar">
+            <graphic>
+                <StackedFontIcon iconSize="32">
+                    <FontIcon iconColor="#6F6F70" iconLiteral="mdi-account-multiple"/>
+                </StackedFontIcon>
+            </graphic>
+        </Button>
 
         <!-- 收藏 -->
-        <Button id="barLocation" layoutX="23" layoutY="220" mnemonicParsing="false" prefHeight="30" prefWidth="30"/>
+        <Button id="barLocation" layoutX="15" layoutY="220" mnemonicParsing="false" prefHeight="30" prefWidth="30"
+                styleClass="bar">
+            <graphic>
+                <StackedFontIcon iconSize="32">
+                    <FontIcon iconColor="#6F6F70" iconLiteral="mdi-cube-outline"/>
+                </StackedFontIcon>
+            </graphic>
+        </Button>
 
         <!-- 设置 -->
-        <Button id="barSet" layoutX="28.0" layoutY="663.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="20"/>
+        <Button id="barSet" layoutX="15.0" layoutY="670.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="20"
+                styleClass="bar">
+            <graphic>
+                <StackedFontIcon iconSize="32">
+                    <FontIcon iconColor="#6F6F70" iconLiteral="mdi-settings"/>
+                </StackedFontIcon>
+            </graphic>
+        </Button>
     </Pane>
 
     <!-- groupBarChat -->
-    <Pane id="groupBarChat" layoutX="76" layoutY="1" prefHeight="720.0" prefWidth="980.0"
-          style="-fx-background-color:#D2A5C3;">
+    <Pane id="groupBarChat" layoutX="76" layoutY="1" prefHeight="780.0" prefWidth="1240.0" styleClass="groupBarChat">
+        <!-- 搜索栏 -->
+        <Pane styleClass="search" prefHeight="80" prefWidth="314">
+            <TextField styleClass="searchInput" layoutX="20" layoutY="30" prefHeight="30" prefWidth="240"
+                       promptText="搜索">
+                <padding>
+                    <Insets left="30"/>
+                </padding>
+            </TextField>
+            <Label styleClass="searchAdd" layoutX="270" layoutY="30" prefHeight="30" prefWidth="30"/>
+        </Pane>
+        <!-- 会话栏 -->
+        <Pane id="talk" layoutY="80" prefHeight="738" prefWidth="314">
+            <ListView id="talkList" prefHeight="738" prefWidth="314" styleClass="talkListStyle"/>
+        </Pane>
     </Pane>
 
     <!-- groupBarFriend -->
-    <Pane id="groupBarFriend" layoutX="76" layoutY="1" prefHeight="720.0" prefWidth="980.0"
-          style="-fx-background-color:#6092b6;" visible="false">
+    <Pane id="groupBarFriend" layoutX="76" layoutY="1" prefHeight="780.0" prefWidth="1240.0" styleClass="groupBarFriend"
+          visible="false">
+    </Pane>
+
+    <!-- groupBarLocation -->
+    <Pane id="groupBarLocation" layoutX="76" layoutY="1" prefHeight="780.0" prefWidth="1240.0"
+          styleClass="groupBarLocation"
+          visible="false">
+    </Pane>
+
+    <!-- groupBarSet -->
+    <Pane id="groupBarSet" layoutX="76" layoutY="1" prefHeight="780.0" prefWidth="1240.0"
+          styleClass="groupBarSet"
+          visible="false">
     </Pane>
 </Pane>

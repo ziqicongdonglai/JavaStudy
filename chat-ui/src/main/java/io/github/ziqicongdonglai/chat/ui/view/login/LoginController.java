@@ -33,7 +33,7 @@ public class LoginController extends LoginInit implements ILoginMethod {
     public void doLoginError() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.titleProperty().set("提示");
-        alert.headerTextProperty().set("登陆失败！");
+        alert.headerTextProperty().set("登录失败！");
         alert.showAndWait();
     }
 
@@ -41,7 +41,7 @@ public class LoginController extends LoginInit implements ILoginMethod {
     public void doLoginSuccess() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.titleProperty().set("提示");
-        alert.headerTextProperty().set("登陆成功！");
+        alert.headerTextProperty().set("登录成功！");
         alert.showAndWait();
         // 关闭原窗口
         close();

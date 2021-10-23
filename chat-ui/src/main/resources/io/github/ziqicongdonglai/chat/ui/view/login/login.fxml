@@ -46,7 +46,7 @@
         </padding>
     </PasswordField>
 
-    <Button id="loginButton" prefHeight="45" prefWidth="250" styleClass="login_button" text="登 陆"
+    <Button id="loginButton" prefHeight="45" prefWidth="250" styleClass="login_button" text="登 录"
             AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="90.0" />
 
     <Label id="slogan" prefHeight="15" prefWidth="200.0" text="v1.0 | https://com.myblog"
