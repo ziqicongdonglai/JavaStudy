@@ -9,6 +9,9 @@
     -fx-font-family: "微软雅黑";
     -fx-text-fill: #000000;
     -fx-font-size: 14px;
+    -fx-background-image: url("../img/system/search_0.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 0px center;
 }
 
 .searchInput:focused{
@@ -25,7 +28,7 @@
     -fx-background-radius: 5px;
     -fx-border-color: #dbd9d8;
     -fx-cursor: hand;
-    -fx-background-image: url("https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/logo/add_0.2iiadugwlow0.png");
+    -fx-background-image: url("../img/system/add_0.png");
 }
 
 .searchAdd:hover{

@@ -49,11 +49,11 @@ public abstract class LoginInit extends UIObject {
     }
 
     private void obtain() {
-        loginMin = $("loginMin");
-        loginClose = $("loginClose");
-        loginButton = $("loginButton");
-        userId = $("userId");
-        userPassword = $("userPassword");
+        loginMin = $("loginMin", Button.class);
+        loginClose = $("loginClose", Button.class);
+        loginButton = $("loginButton", Button.class);
+        userId = $("userId", TextField.class);
+        userPassword = $("userPassword", PasswordField.class);
     }
 
 }

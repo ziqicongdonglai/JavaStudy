@@ -4,8 +4,10 @@
 
 #operation {
     -fx-background-color: transparent;
-    -fx-background-image: url("../img/banner.png");
+    -fx-background-image: url("../img/banner.jpg");
     -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 .close, .close:pressed {
@@ -20,7 +22,7 @@
 }
 
 .close:hover {
-    -fx-background-color: #EABCBE;
+    -fx-background-color: #7fa5de;
     -fx-background-image: url("../img/close_0.png");
     -fx-border-width: 1px 1px 0 0;
     -fx-border-radius: 2px;
@@ -38,7 +40,7 @@
 }
 
 .min:hover {
-    -fx-background-color: #EABCBE;
+    -fx-background-color: #7fa5de;
     -fx-background-image: url("../img/min_1.png");
     -fx-border-width: 1px 1px 0 0;
     -fx-border-radius: 2px;

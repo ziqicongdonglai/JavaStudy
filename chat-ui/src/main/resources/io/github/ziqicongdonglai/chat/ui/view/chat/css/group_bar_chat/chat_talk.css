@@ -64,7 +64,7 @@
 
 .talkElement{
     -fx-background-color:transparent;
-    -fx-text-fill:black;
+    -fx-text-fill:#333;
 }
 
 .element_head{
@@ -72,7 +72,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 50px 50px;
     -fx-background-color: white;
-    -fx-background-image: url("https://t.ly/HEjv");
+    -fx-background-image: url("../img/head/me.jpg");
 }
 
 .element_nikeName{
@@ -123,7 +123,7 @@
     -fx-background-color:transparent;
     -fx-cursor: hand;
     -fx-border-width: 0;
-    -fx-background-image: url("https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/logo/talk_delete.7dkrt32wqtw0.png");
+    -fx-background-image: url("../img/system/talk_delete.png");
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
 }

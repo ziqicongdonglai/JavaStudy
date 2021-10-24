@@ -1,38 +1,37 @@
 package io.github.ziqicongdonglai.chat.ui.view.chat.data;
 
-import java.util.Date;
-
 /**
  * @author ke_zhang
  * @create 2021-10-24 0:25
- * @description TalkBoxData
+ * @description 对话框数据
  */
 public class TalkBoxData {
-    private int talkIdx;
-    private Integer talkType;
-    private String talkId;
-    private String talkName;
-    private String talkHead;
-    private String talkSketch;
-    private Date talkDate;
-    private Boolean selected;
 
-    public TalkBoxData(String talkId, Integer talkType, String talkName, String talkHead) {
-        this.talkType = talkType;
-        this.talkId = talkId;
-        this.talkName = talkName;
-        this.talkHead = talkHead;
-    }
+    /**
+     * 对话Id
+     */
+    private String talkId;
+    /**
+     * 对话类型
+     */
+    private Integer talkType;
+    /**
+     * 对话名称
+     */
+    private String talkName;
+    /**
+     * 对话头像
+     */
+    private String talkHead;
 
     public TalkBoxData() {
     }
 
-    public int getTalkIdx() {
-        return talkIdx;
-    }
-
-    public void setTalkIdx(int talkIdx) {
-        this.talkIdx = talkIdx;
+    public TalkBoxData(String talkId, Integer talkType, String talkName, String talkHead) {
+        this.talkId = talkId;
+        this.talkType = talkType;
+        this.talkName = talkName;
+        this.talkHead = talkHead;
     }
 
     public Integer getTalkType() {
@@ -65,43 +64,5 @@ public class TalkBoxData {
 
     public void setTalkHead(String talkHead) {
         this.talkHead = talkHead;
-    }
-
-    public String getTalkSketch() {
-        return talkSketch;
-    }
-
-    public void setTalkSketch(String talkSketch) {
-        this.talkSketch = talkSketch;
-    }
-
-    public Date getTalkDate() {
-        return talkDate;
-    }
-
-    public void setTalkDate(Date talkDate) {
-        this.talkDate = talkDate;
-    }
-
-    public Boolean getSelected() {
-        return selected;
-    }
-
-    public void setSelected(Boolean selected) {
-        this.selected = selected;
-    }
-
-    @Override
-    public String toString() {
-        return "TalkBoxData{" +
-                "talkIdx=" + talkIdx +
-                ", talkType=" + talkType +
-                ", talkId='" + talkId + '\'' +
-                ", talkName='" + talkName + '\'' +
-                ", talkHead='" + talkHead + '\'' +
-                ", talkSketch='" + talkSketch + '\'' +
-                ", talkDate=" + talkDate +
-                ", selected=" + selected +
-                '}';
     }
 }

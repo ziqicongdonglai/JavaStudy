@@ -16,11 +16,7 @@ public abstract class UIObject extends Stage {
     private double xOffset;
     private double yOffset;
 
-    public <T> T $(String id) {
-        return (T) root.lookup("#" + id);
-    }
-
-    public <T> T $(String id, Class<T> c) {
+    public <T> T $(String id,Class<T> clazz) {
         return (T) root.lookup("#" + id);
     }
 

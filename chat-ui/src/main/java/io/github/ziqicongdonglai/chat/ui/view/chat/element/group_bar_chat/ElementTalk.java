@@ -2,11 +2,14 @@ package io.github.ziqicongdonglai.chat.ui.view.chat.element.group_bar_chat;
 
 import io.github.ziqicongdonglai.chat.ui.util.DateUtil;
 import io.github.ziqicongdonglai.chat.ui.util.Ids;
+import io.github.ziqicongdonglai.chat.ui.view.chat.data.RemindCount;
 import io.github.ziqicongdonglai.chat.ui.view.chat.data.TalkBoxData;
+import io.github.ziqicongdonglai.chat.ui.view.chat.data.TalkData;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 
 import java.util.Date;
@@ -21,7 +24,14 @@ public class ElementTalk {
      * 对话面板(与好友对话、与群组对话)
      */
     private final Pane pane;
-
+    /**
+     * 头像
+     */
+    private Label head;
+    /**
+     * 昵称
+     */
+    private Label nikeName;
     /**
      * 信息简述
      */
@@ -35,6 +45,16 @@ public class ElementTalk {
      */
     private final Button delete;
 
+    /**
+     * 消息提醒
+     */
+    private final Label msgRemind;
+
+    /**
+     * 初始化填充消息对话框
+     */
+    private final ListView<Pane> infoBoxList;
+
     public ElementTalk(String talkId, Integer talkType, String talkName, String talkHead, String talkSketch, Date talkDate) {
         pane = new Pane();
         pane.setId(Ids.ElementTalkId.createTalkPaneId(talkId));
@@ -43,8 +63,8 @@ public class ElementTalk {
         pane.getStyleClass().add("talkElement");
         ObservableList<Node> children = pane.getChildren();
 
-        //头像区域
-        Label head = new Label();
+        // 头像区域
+        head = new Label();
         head.setPrefSize(50, 50);
         head.setLayoutX(15);
         head.setLayoutY(15);
@@ -52,8 +72,8 @@ public class ElementTalk {
         head.setStyle(String.format("-fx-background-image: url('%s')", talkHead));
         children.add(head);
 
-        //昵称区域
-        Label nikeName = new Label();
+        // 昵称区域
+        nikeName = new Label();
         nikeName.setPrefSize(140, 25);
         nikeName.setLayoutX(80);
         nikeName.setLayoutY(15);
@@ -81,6 +101,17 @@ public class ElementTalk {
         // 填充；信息简述 & 信息时间
         fillMsgSketch(talkSketch, talkDate);
 
+        // 消息提醒
+        msgRemind = new Label();
+        msgRemind.setPrefSize(15, 15);
+        msgRemind.setLayoutX(60);
+        msgRemind.setLayoutY(5);
+        msgRemind.setUserData(new RemindCount());
+        msgRemind.setText("");
+        msgRemind.setVisible(false);
+        msgRemind.getStyleClass().add("element_msgRemind");
+        children.add(msgRemind);
+
         // 删除对话框按钮
         delete = new Button();
         delete.setVisible(false);
@@ -90,10 +121,20 @@ public class ElementTalk {
         delete.getStyleClass().add("element_delete");
         children.add(delete);
 
+        // 消息框[初始化，未装载]，承载对话信息内容，点击按钮时候填充
+        infoBoxList = new ListView<>();
+        infoBoxList.setId(Ids.ElementTalkId.createInfoBoxListId(talkId));
+        infoBoxList.setUserData(new TalkData(talkName, talkHead));
+        infoBoxList.setPrefSize(850, 560);
+        infoBoxList.getStyleClass().add("infoBoxStyle");
     }
 
     public Pane pane() {
         return pane;
+    }
+
+    public ListView<Pane> infoBoxList() {
+        return infoBoxList;
     }
 
     public Button delete() {
@@ -102,14 +143,10 @@ public class ElementTalk {
 
     public void fillMsgSketch(String talkSketch, Date talkDate) {
         if (null != talkSketch) {
-            if (talkSketch.length() > 30) {
-                talkSketch = talkSketch.substring(0, 30);
-            }
+            if (talkSketch.length() > 30) talkSketch = talkSketch.substring(0, 30);
             msgSketch.setText(talkSketch);
         }
-        if (null == talkDate) {
-            talkDate = new Date();
-        }
+        if (null == talkDate) talkDate = new Date();
         // 格式化信息
         String talkSimpleDate = DateUtil.simpleDate(talkDate);
         msgData.setText(talkSimpleDate);
@@ -117,6 +154,10 @@ public class ElementTalk {
 
     public void clearMsgSketch() {
         msgSketch.setText("");
+    }
+
+    public Label msgRemind() {
+        return msgRemind;
     }
 
 }

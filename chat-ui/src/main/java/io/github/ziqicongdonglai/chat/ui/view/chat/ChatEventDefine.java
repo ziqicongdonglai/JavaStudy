@@ -1,7 +1,11 @@
 package io.github.ziqicongdonglai.chat.ui.view.chat;
 
-import javafx.scene.control.Button;
+import io.github.ziqicongdonglai.chat.ui.view.chat.data.TalkBoxData;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+
+import java.util.Date;
 
 /**
  * @author ke_zhang
@@ -11,14 +15,43 @@ import javafx.scene.layout.Pane;
 public class ChatEventDefine {
 
     private final ChatInit chatInit;
+    private final IChatEvent chatEvent;
+    private final IChatMethod chatMethod;
 
-    public ChatEventDefine(ChatInit chatInit) {
+    public ChatEventDefine(ChatInit chatInit, IChatEvent chatEvent, IChatMethod chatMethod) {
         this.chatInit = chatInit;
-        chatInit.move();
+        this.chatEvent = chatEvent;
+        this.chatMethod = chatMethod;
+
+        chatInit.move();     //移动
+        min();               // 最小化
+        quit();              // 退出
         this.barChat();
         this.barFriend();
         this.barLocation();
         this.barSet();
+        doEventTextSend();   // 发送消息事件[键盘]
+        doEventTouchSend();  // 发送消息事件[按钮]
+    }
+
+    /**
+     * 最小化
+     */
+    private void min() {
+        chatInit.$("group_bar_chat_min", Button.class).setOnAction(event -> {
+            chatInit.setIconified(true);
+        });
+    }
+
+    /**
+     * 退出
+     */
+    private void quit() {
+        chatInit.$("group_bar_chat_close", Button.class).setOnAction(event -> {
+            chatInit.close();
+            System.exit(0);
+            System.out.println("退出");
+        });
     }
 
     private void switchBarChat(Button barChat, Pane groupBarChat, boolean toggle) {
@@ -61,7 +94,6 @@ public class ChatEventDefine {
             barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
         }
     }
-
 
     private void barChat() {
         Button barChat = chatInit.$("barChat", Button.class);
@@ -165,5 +197,46 @@ public class ChatEventDefine {
             }
             barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
         });
+    }
+
+    /**
+     * 发送消息
+     */
+    private void doEventTouchSend() {
+        Label touch_send = chatInit.$("touch_send", Label.class);
+        touch_send.setOnMousePressed(event -> {
+            doEventSendMsg();
+        });
+    }
+
+
+    /**
+     * 发送消息快捷键
+     */
+    private void doEventTextSend() {
+        TextArea txt_input = chatInit.$("txt_input", TextArea.class);
+        txt_input.setOnKeyPressed(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                doEventSendMsg();
+            }
+        });
+    }
+
+    private void doEventSendMsg() {
+        TextArea txt_input = chatInit.$("txt_input", TextArea.class);
+        MultipleSelectionModel selectionModel = chatInit.$("talkList", ListView.class).getSelectionModel();
+        Pane selectedItem = (Pane) selectionModel.getSelectedItem();
+        // 对话信息
+        TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
+        String msg = txt_input.getText();
+        if (null == msg || "".equals(msg) || "".equals(msg.trim())) {
+            return;
+        }
+        Date msgDate = new Date();
+        // 发送消息
+        System.out.println("发送消息：" + msg);
+        // 发送事件给自己添加消息
+        chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), msg, msgDate, true, true, false);
+        txt_input.clear();
     }
 }
