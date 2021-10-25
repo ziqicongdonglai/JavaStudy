@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.FlowPane?>
+
+<FlowPane id="face" hgap="5.0"  vgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170" prefWidth="230"
+          stylesheets="@./css/face.css" xmlns="http://javafx.com/javafx">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</FlowPane>

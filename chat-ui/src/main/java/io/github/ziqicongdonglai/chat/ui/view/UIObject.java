@@ -39,6 +39,22 @@ public abstract class UIObject extends Stage {
         });
     }
 
+    public double x() {
+        return getX();
+    }
+
+    public double y() {
+        return getY();
+    }
+
+    public double width() {
+        return getWidth();
+    }
+
+    public double height() {
+        return getHeight();
+    }
+
     /**
      * 初始化页面：抽象方法
      */

@@ -6,6 +6,7 @@ module java.jfx {
     requires AnimateFX;
     requires com.github.oshi;
     requires fastjson;
+    requires java.desktop;
 
 
     opens io.github.ziqicongdonglai.java.jfx.ctrl to javafx.fxml;
@@ -19,4 +20,7 @@ module java.jfx {
 
     opens io.github.ziqicongdonglai.java.jfx.effect to javafx.fxml;
     exports io.github.ziqicongdonglai.java.jfx.effect;
+
+    opens io.github.ziqicongdonglai.java.jfx.basic.trayicon to javafx.fxml;
+    exports io.github.ziqicongdonglai.java.jfx.basic.trayicon;
 }
