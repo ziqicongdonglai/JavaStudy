@@ -23,4 +23,7 @@ module java.jfx {
 
     opens io.github.ziqicongdonglai.java.jfx.basic.trayicon to javafx.fxml;
     exports io.github.ziqicongdonglai.java.jfx.basic.trayicon;
+
+    opens io.github.ziqicongdonglai.java.jfx.basic.animate to javafx.fxml;
+    exports io.github.ziqicongdonglai.java.jfx.basic.animate;
 }
