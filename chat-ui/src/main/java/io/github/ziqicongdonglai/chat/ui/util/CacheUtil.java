@@ -1,6 +1,6 @@
 package io.github.ziqicongdonglai.chat.ui.util;
 
-import io.github.ziqicongdonglai.chat.ui.view.chat.element.group_bar_chat.ElementTalk;
+import io.github.ziqicongdonglai.chat.ui.view.chat.group_bar_chat.ElementTalk;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

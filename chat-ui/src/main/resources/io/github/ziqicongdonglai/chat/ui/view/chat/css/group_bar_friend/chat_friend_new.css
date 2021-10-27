@@ -1,0 +1,151 @@
+.elementFriendNewDetail{
+    -fx-background-color: transparent;
+}
+
+.friendNewPane{
+    -fx-background-color:transparent;
+}
+
+.friendNewListView{
+    -fx-background-color:transparent;
+}
+
+.friendNewListView .scroll-bar:vertical .track,
+.friendNewListView .scroll-bar:horizontal .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius:2em;
+}
+
+.friendNewListView .scroll-bar:horizontal .increment-button,
+.friendNewListView .scroll-bar:horizontal .decrement-button{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 0 0 0;
+}
+
+.friendNewListView .scroll-bar:vertical .increment-button,
+.friendNewListView .scroll-bar:vertical .decrement-button{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 0 -1500 0;
+}
+
+.friendNewListView .scroll-bar .increment-button,
+.friendNewListView .scroll-bar .decrement-button{
+    -fx-shape: " ";
+    -fx-padding:0;
+}
+
+.friendNewListView .scroll-bar:vertical  .thumb,
+.friendNewListView .scroll-bar:horizontal  .thumb{
+    -fx-background-color:derive(#c7c6c6, 10%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 1em;
+}
+
+.friendNewListView .scroll-bar:vertical,
+.friendNewListView .scroll-bar:horizontal{
+    -fx-pref-width: 10;
+    -fx-background-color:transparent;
+}
+
+.friendNewListView .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.friendNewListView .list-cell:selected{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.friendNewListView .scroll-bar:horizontal .increment-arrow,
+.friendNewListView .scroll-bar:horizontal .decrement-arrow,
+.friendNewListView .scroll-bar:horizontal .increment-button,
+.friendNewListView .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.elementFriendNewUser_head{
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50px 50px;
+    -fx-background-color: white;
+    -fx-background-radius: 2px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+}
+
+.elementFriendNewUser_name{
+    -fx-font-family: "微软雅黑";
+    -fx-text-fill: #000000;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-white-space: nowrap;
+    -fx-overflow: hidden;
+    -fx-text-overflow: ellipsis;
+    -fx-text-align: left;
+}
+
+.elementFriendNewUser_id{
+    -fx-font-family: "微软雅黑";
+    -fx-text-fill: #999999;
+    -fx-font-size: 12px;
+    -fx-white-space: nowrap;
+    -fx-overflow: hidden;
+    -fx-text-overflow: ellipsis;
+    -fx-text-align: left;
+}
+
+.friendNewSearch{
+    -fx-font-family: "微软雅黑";
+    -fx-text-fill: #000000;
+    -fx-font-size: 16px;
+}
+
+/** 添加好友 **/
+.elementFriendNewUser_statusLabel_0,.elementFriendNewUser_statusLabel_0:pressed{
+    -fx-background-color: #129611;
+    -fx-text-align: center;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-background-radius: 2px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+}
+
+.elementFriendNewUser_statusLabel_0:hover{
+    -fx-background-color: #1aad19;
+}
+
+.elementFriendNewUser_statusLabel_1,.elementFriendNewUser_statusLabel_0:pressed{
+    -fx-background-color: #129611;
+    -fx-text-align: center;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-background-radius: 2px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+}
+
+.elementFriendNewUser_statusLabel_1:hover{
+    -fx-background-color: #1aad19;
+}
+
+.elementFriendNewUser_statusLabel_2,.elementFriendNewUser_statusLabel_0:pressed,.elementFriendNewUser_statusLabel_2:hover{
+    -fx-text-align: center;
+    -fx-text-fill: #999999;
+    -fx-alignment: center;
+}
+
+.elementFriendNewUser{
+}
+
+.elementFriendNew_line{
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: derive(#c7c6c6, 30%);
+}

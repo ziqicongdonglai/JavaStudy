@@ -47,13 +47,28 @@ public class Main extends Application {
                 chat.addTalkMsgRight("1000004", "czx，是糖团出道第四名", new Date(), true, false, false);
                 chat.addTalkMsgUserLeft("1000004", "糖团第四名", new Date(), true, false, true);
 
+                chat.addTalkBox(0, 0, "1000005", "陶然然", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/t_mqxu.jpg", "", new Date(), false);
+                chat.addTalkMsgUserLeft("1000005", "每日打卡 Day35 1.chat-ui : group_bar_friend 2.Daily Reading", new Date(), true, false, false);
+                chat.addTalkMsgRight("1000005", "收到，今日的卡已经打完了！", new Date(), true, false, false);
+
                 // 群组 - 对话框
                 chat.addTalkBox(0, 1, "5307397", "糖团粉丝应援群", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tangzhi.jpg", "", new Date(), true);
                 chat.addTalkMsgRight("5307397", "有没有看最新的团的vlog", new Date(), true, true, false);
-                chat.addTalkMsgGroupLeft("5307397", "1000003", "糖1 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang1.jpg", "xlnyg，还是那么好看", new Date(), true, false, true);
-                chat.addTalkMsgGroupLeft("5307397", "1000004", "糖2 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang2.jpg", "2 和 3 的 cp真好ke", new Date(), true, false, true);
-                chat.addTalkMsgGroupLeft("5307397", "1000002", "糖3 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang3.jpg", "yj模仿口音还是看一次笑一次", new Date(), true, false, true);
+                chat.addTalkMsgGroupLeft("5307397", "1000003", "糖2 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang2.jpg", "xlnyg，还是那么好看", new Date(), true, false, true);
+                chat.addTalkMsgGroupLeft("5307397", "1000004", "糖3 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang3.jpg", "2 和 3 的 cp真好ke", new Date(), true, false, true);
+                chat.addTalkMsgGroupLeft("5307397", "1000002", "糖1 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang1.jpg", "yj模仿口音还是看一次笑一次", new Date(), true, false, true);
                 chat.addTalkMsgGroupLeft("5307397", "1000005", "糖4 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang4.jpg", "zx不亏为狂小璇", new Date(), true, false, true);
+
+                // 群组
+                chat.addFriendGroup("2000001", "软件2126", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/qqgroup.png");
+                chat.addFriendGroup("2000002", "糖团粉丝应援群", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tangzhi.jpg");
+
+                // 好友
+                chat.addFriendUser(false, "1000002", "糖1 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang1.jpg");
+                chat.addFriendUser(false, "1000003", "糖2 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang2.jpg");
+                chat.addFriendUser(false, "1000004", "糖3 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang3.jpg");
+                chat.addFriendUser(false, "1000005", "糖4 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang4.jpg");
+
             }
         }));
         login.doShow();

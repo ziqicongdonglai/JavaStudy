@@ -3,10 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<Pane id="chat" prefHeight="820.0" prefWidth="1243.0" stylesheets="@css/chat.css" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1">
+<?import org.kordamp.ikonli.javafx.*?>
+<Pane id="chat" prefHeight="820.0" prefWidth="1243.0" stylesheets="@css/chat.css" xmlns="http://javafx.com/javafx/17">
     <!-- 控制栏 -->
     <Pane id="bar" prefHeight="820" prefWidth="76">
         <!-- 头像 -->
@@ -17,7 +15,7 @@
                 styleClass="bar">
             <graphic>
                 <StackedFontIcon iconSize="32">
-                    <FontIcon iconColor="#A8DC61" iconLiteral="mdi-comment-multiple-outline"/>
+                    <FontIcon iconColor="#9E99EE" iconLiteral="mdi-comment-multiple-outline"/>
                 </StackedFontIcon>
             </graphic>
         </Button>
@@ -91,19 +89,37 @@
         </Pane>
         <!-- 文本栏 -->
         <Pane id="txt" layoutX="314" layoutY="684" prefHeight="90" prefWidth="852">
-            <TextArea id="txt_input" layoutX="20" prefHeight="90" prefWidth="813" styleClass="txt_input_style"
+            <TextArea id="txt_input" layoutX="2.0" prefHeight="90" prefWidth="850.0" styleClass="txt_input_style"
                       wrapText="true"/>
         </Pane>
         <!-- 触达消息 [发送] -->
-        <Pane id="touch" layoutX="314" layoutY="775" prefHeight="44" prefWidth="852">
-            <Label id="touch_send" layoutX="730" layoutY="4" prefHeight="34" prefWidth="85" text="发送(S)"/>
+        <Pane id="touch" layoutX="313.0" layoutY="774.0" prefHeight="44.0" prefWidth="852.0">
+            <Label id="touch_send" layoutX="736.0" prefHeight="34" prefWidth="85" text="发送(S)"/>
         </Pane>
 
     </Pane>
 
     <!-- groupBarFriend -->
-    <Pane id="groupBarFriend" layoutX="76" layoutY="1" prefHeight="818" prefWidth="1166" styleClass="groupBarFriend"
-          visible="false">
+    <Pane visible="false" id="groupBarFriend" layoutX="76" layoutY="1" prefWidth="1166" prefHeight="818">
+        <!-- 操作栏；最小化、关闭 -->
+        <Pane id="operation" layoutX="314" prefWidth="852" prefHeight="32">
+            <Button id="group_bar_friend_min" styleClass="min" layoutX="767" prefWidth="42" prefHeight="32"/>
+            <Button id="group_bar_friend_close" styleClass="close" layoutX="810" prefWidth="42" prefHeight="32"/>
+        </Pane>
+        <!-- 搜索栏 -->
+        <Pane styleClass="search" prefHeight="80" prefWidth="314">
+            <TextField styleClass="searchInput" layoutX="20" layoutY="30" prefHeight="30" prefWidth="240"
+                       promptText="搜索">
+                <padding>
+                    <Insets left="30"/>
+                </padding>
+            </TextField>
+            <Label styleClass="searchAdd" layoutX="270" layoutY="30" prefHeight="30" prefWidth="30"/>
+        </Pane>
+        <!-- 好友栏 -->
+        <Pane id="friend" layoutY="80" prefHeight="738" prefWidth="314">
+            <ListView id="friendList" prefHeight="738" prefWidth="314" styleClass="friendListStyle"/>
+        </Pane>
     </Pane>
 
     <!-- groupBarLocation -->

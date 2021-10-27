@@ -1,4 +1,4 @@
-package io.github.ziqicongdonglai.chat.ui.view.chat.element.group_bar_chat;
+package io.github.ziqicongdonglai.chat.ui.view.chat.group_bar_chat;
 
 import io.github.ziqicongdonglai.chat.ui.util.AutoSizeTool;
 import javafx.collections.ObservableList;
