@@ -77,6 +77,7 @@ public interface IChatMethod {
      */
     void addTalkMsgRight(String talkId, String msg, Date msgData, Boolean idxFirst, Boolean selected, Boolean isRemind);
 
+
     /**
      * 工具栏表情框体位置：X
      *
@@ -109,5 +110,4 @@ public interface IChatMethod {
      * @param userHead     好友头像
      */
     void addFriendUser(boolean selected, String userId, String userNickName, String userHead);
-
 }

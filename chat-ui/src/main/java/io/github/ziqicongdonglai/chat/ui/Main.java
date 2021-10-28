@@ -64,10 +64,12 @@ public class Main extends Application {
                 chat.addFriendGroup("2000002", "糖团粉丝应援群", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tangzhi.jpg");
 
                 // 好友
+                chat.addFriendUser(false, "1000001", "陶然然", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/t_mqxu.jpg");
                 chat.addFriendUser(false, "1000002", "糖1 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang1.jpg");
                 chat.addFriendUser(false, "1000003", "糖2 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang2.jpg");
                 chat.addFriendUser(false, "1000004", "糖3 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang3.jpg");
                 chat.addFriendUser(false, "1000005", "糖4 fans", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/tang4.jpg");
+
 
             }
         }));
