@@ -189,10 +189,10 @@ public class ChatView {
                 // 搜索清空元素
                 element.friendListView().getItems().clear();
                 // 添加朋友
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000006", "陈蓉琪", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/crq.jpg", 0).pane());
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000007", "姜新雨", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/jxy.jpg", 2).pane());
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000008", "刘一飞", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/lyf.jpg", 1).pane());
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000009", "刘佳君", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/ljj.jpg", 1).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000007", "陈蓉琪", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/crq.jpg", 0).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000008", "姜新雨", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/jxy.jpg", 2).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000009", "刘一飞", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/lyf.jpg", 1).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("10000010", "刘佳君", "https://cdn.jsdelivr.net/gh/ziqicongdonglai/blogpic/img/2021/ljj.jpg", 1).pane());
             }
         });
     }

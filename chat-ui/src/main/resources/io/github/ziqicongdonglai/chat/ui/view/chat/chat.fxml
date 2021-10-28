@@ -15,7 +15,7 @@
                 styleClass="bar">
             <graphic>
                 <StackedFontIcon iconSize="32">
-                    <FontIcon iconColor="#9E99EE" iconLiteral="mdi-comment-multiple-outline"/>
+                    <FontIcon iconColor="#A8DC61" iconLiteral="mdi-comment-multiple-outline"/>
                 </StackedFontIcon>
             </graphic>
         </Button>
@@ -101,11 +101,13 @@
 
     <!-- groupBarFriend -->
     <Pane visible="false" id="groupBarFriend" layoutX="76" layoutY="1" prefWidth="1166" prefHeight="818">
+
         <!-- 操作栏；最小化、关闭 -->
         <Pane id="operation" layoutX="314" prefWidth="852" prefHeight="32">
             <Button id="group_bar_friend_min" styleClass="min" layoutX="767" prefWidth="42" prefHeight="32"/>
             <Button id="group_bar_friend_close" styleClass="close" layoutX="810" prefWidth="42" prefHeight="32"/>
         </Pane>
+
         <!-- 搜索栏 -->
         <Pane styleClass="search" prefHeight="80" prefWidth="314">
             <TextField styleClass="searchInput" layoutX="20" layoutY="30" prefHeight="30" prefWidth="240"
@@ -116,6 +118,7 @@
             </TextField>
             <Label styleClass="searchAdd" layoutX="270" layoutY="30" prefHeight="30" prefWidth="30"/>
         </Pane>
+
         <!-- 好友栏 -->
         <Pane id="friend" layoutY="80" prefHeight="738" prefWidth="314">
             <ListView id="friendList" prefHeight="738" prefWidth="314" styleClass="friendListStyle"/>
