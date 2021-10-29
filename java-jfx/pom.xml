@@ -24,83 +24,89 @@
             <version>1.2.2</version>
         </dependency>
 
-        <!--获取系统信息-->
-        <dependency>
-            <groupId>com.github.oshi</groupId>
-            <artifactId>oshi-core</artifactId>
-            <version>5.8.2</version>
-        </dependency>
-        <!--JSON解析-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.78</version>
-        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jfoenix</groupId>
-            <artifactId>jfoenix</artifactId>
-            <version>9.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-    </dependencies>
+            <version>11.0.2</version>
+    </dependency>
 
-    <build>
-        <!-- 项目最终打包名-->
-        <finalName>java-jfx</finalName>
-        <plugins>
-            <!--maven编译插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-            </plugin>
+    <!--获取系统信息-->
+    <dependency>
+        <groupId>com.github.oshi</groupId>
+        <artifactId>oshi-core</artifactId>
+        <version>5.8.2</version>
+    </dependency>
+    <!--JSON解析-->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.78</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-web</artifactId>
+        <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.jfoenix</groupId>
+        <artifactId>jfoenix</artifactId>
+        <version>9.0.10</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>${javafx.version}</version>
+    </dependency>
+</dependencies>
 
-            <!--使用maven-assembly-plugin插件打包，可将项目依赖的jar包都打进去-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.1.0</version>
-                <!--配置执行器-->
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <!-- 绑定到package生命周期阶段上 -->
-                        <phase>package</phase>
-                        <goals>
-                            <!-- 只运行一次 -->
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--打包的文件名，上面配置过了-->
-                    <finalName>${project.build.finalName}</finalName>
-                    <archive>
-                        <manifest>
-                            <mainClass>io.github.ziqicongdonglai.java.jfx.Launcher</mainClass>
-                        </manifest>
-                    </archive>
-                    <!--将项目依赖的jar包一并打入-->
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+<build>
+<!-- 项目最终打包名-->
+<finalName>java-jfx</finalName>
+<plugins>
+    <!--maven编译插件-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+    </plugin>
+
+    <!--使用maven-assembly-plugin插件打包，可将项目依赖的jar包都打进去-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <!--配置执行器-->
+        <executions>
+            <execution>
+                <id>make-assembly</id>
+                <!-- 绑定到package生命周期阶段上 -->
+                <phase>package</phase>
+                <goals>
+                    <!-- 只运行一次 -->
+                    <goal>single</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <!--打包的文件名，上面配置过了-->
+            <finalName>${project.build.finalName}</finalName>
+            <archive>
+                <manifest>
+                    <mainClass>io.github.ziqicongdonglai.java.jfx.Launcher</mainClass>
+                </manifest>
+            </archive>
+            <!--将项目依赖的jar包一并打入-->
+            <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+    </plugin>
+</plugins>
+</build>
+        </project>

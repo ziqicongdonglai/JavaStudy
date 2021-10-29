@@ -26,4 +26,7 @@ module java.jfx {
 
     opens io.github.ziqicongdonglai.java.jfx.basic.animate to javafx.fxml;
     exports io.github.ziqicongdonglai.java.jfx.basic.animate;
+
+    opens io.github.ziqicongdonglai.java.jfx.basic.control to javafx.fxml;
+    exports io.github.ziqicongdonglai.java.jfx.basic.control;
 }
