@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="075bea04-c681-48a3-bd7e-24a6efa05a29" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/ChannelAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/ChannelHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/ChannelInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/client/AioClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/client/AioClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/server/AioServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/server/AioServerChannelInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/aio/server/AioServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/ChannelAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/ChannelHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/client/BioClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/client/BioClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/server/BioServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/bio/server/BioServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/ChannelAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/ChannelHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/client/NioClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/client/NioClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/server/NioServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/ziqicongdonglai/netty/demo/nio/server/NioServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../address/src/main/resources/io/github/ziqicongdonglai/address/view/person-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../address/src/main/resources/io/github/ziqicongdonglai/address/view/person-edit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/src/main/java/io/github/ziqicongdonglai/linechart/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/src/main/java/io/github/ziqicongdonglai/linechart/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/src/main/resources/io/github/ziqicongdonglai/linechart/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../linechar/src/main/resources/io/github/ziqicongdonglai/linechart/fxml/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weather-app/src/main/resources/io/github/ziqicongdonglai/weather/view/icontest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../weather-app/src/main/resources/io/github/ziqicongdonglai/weather/view/icontest.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\tools\maven_jar" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../tools/apache-maven-3.8.2" />
+        <option name="userSettingsFile" value="D:\tools\apache-maven-3.8.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
+  <component name="ProjectId" id="20EPaSPKmLydVwcJ4GwPwSQl5xg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../转本大三上/课程/Java/资料/netty/netty-assistant" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.3574338" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MySelf\Study\Java\JavaStudy\netty-demo-1-00" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.NioServer">
+    <configuration name="AioClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.ziqicongdonglai.netty.demo.aio.client.AioClient" />
+      <module name="netty-demo-1-00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.ziqicongdonglai.netty.demo.aio.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AioServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.ziqicongdonglai.netty.demo.aio.server.AioServer" />
+      <module name="netty-demo-1-00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.ziqicongdonglai.netty.demo.aio.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BioClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.ziqicongdonglai.netty.demo.bio.client.BioClient" />
+      <module name="netty-demo-1-00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.ziqicongdonglai.netty.demo.bio.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BioServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.ziqicongdonglai.netty.demo.bio.server.BioServer" />
+      <module name="netty-demo-1-00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.ziqicongdonglai.netty.demo.bio.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NioServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.ziqicongdonglai.netty.demo.nio.server.NioServer" />
+      <module name="netty-demo-1-00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.ziqicongdonglai.netty.demo.nio.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.NioServer" />
+        <item itemvalue="Application.BioClient" />
+        <item itemvalue="Application.BioServer" />
+        <item itemvalue="Application.AioClient" />
+        <item itemvalue="Application.AioServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="075bea04-c681-48a3-bd7e-24a6efa05a29" name="Changes" comment="" />
+      <created>1635606841359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635606841359</updated>
+      <workItem from="1635606844122" duration="31000" />
+      <workItem from="1635606938503" duration="4227000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
