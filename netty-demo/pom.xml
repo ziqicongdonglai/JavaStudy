@@ -4,31 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.ziqicongdonglai.netty.demo</groupId>
+    <groupId>io.github.ziqicongdonglai</groupId>
     <artifactId>netty-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>netty-assistant</module>
+        <module>netty-demo-1-00</module>
+        <module>netty-demo-1-01</module>
+        <module>netty-demo-1-02</module>
+        <module>netty-demo-1-03</module>
+        <module>netty-demo-1-04</module>
+        <module>netty-demo-1-05</module>
+        <module>netty-demo-1-06</module>
+    </modules>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.69.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version>
+            <version>4.1.36.Final</version>
         </dependency>
     </dependencies>
-
 </project>
