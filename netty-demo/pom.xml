@@ -17,6 +17,11 @@
         <module>netty-demo-1-04</module>
         <module>netty-demo-1-05</module>
         <module>netty-demo-1-06</module>
+        <module>netty-demo-1-07</module>
+        <module>netty-demo-1-08</module>
+        <module>netty-demo-1-09</module>
+        <module>netty-demo-1-10</module>
+        <module>netty-demo-1-11</module>
     </modules>
 
     <properties>
