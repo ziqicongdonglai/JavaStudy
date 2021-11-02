@@ -1,0 +1,11 @@
+syntax = "proto3";
+package top.mqxu.netty.domain;
+
+option java_package = "top.mqxu.netty.demo.domain";
+option java_multiple_files = true;
+option java_outer_classname = "MsgInfo";
+
+message MsgBody {
+  string channelId = 1;
+  string msgInfo = 2;
+}
