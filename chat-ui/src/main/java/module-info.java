@@ -18,4 +18,7 @@ module io.github.ziqicongdonglai.chatui {
 
     opens io.github.ziqicongdonglai.chat.ui.view.face to javafx.fxml;
     exports io.github.ziqicongdonglai.chat.ui.view.face;
+
+    exports io.github.ziqicongdonglai.chat.ui.util;
+    exports io.github.ziqicongdonglai.chat.ui.param;
 }

@@ -2,13 +2,17 @@ package io.github.ziqicongdonglai.chat.ui.view.face;
 
 import io.github.ziqicongdonglai.chat.ui.Main;
 import io.github.ziqicongdonglai.chat.ui.param.AppConst;
+import io.github.ziqicongdonglai.chat.ui.view.chat.data.TalkBoxData;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -31,7 +35,7 @@ public class FaceView {
         Pane rootPane = faceInit.rootPane;
         //表情列表
         ObservableList<Node> children = rootPane.getChildren();
-        //循环生成若干Label标签，并给其设置对应编号的图标，设置其userDate，添加样式，然后加入表情列表
+        //循环生成Label标签，并给其设置对应编号的图标,，然后加入表情列表
         for (int i = 1; i < AppConst.FACE_COUNT; i++) {
             Label label = new Label();
             label.setUserData("f_" + i);
@@ -44,8 +48,15 @@ public class FaceView {
             children.add(label);
             // 每个表情的鼠标点击事件
             label.setOnMouseClicked(event -> {
-                Object userData = label.getUserData();
-                System.out.println("选择了表情：" + userData);
+                MultipleSelectionModel selectionModel = faceInit.chatInit.$("talkList", ListView.class).getSelectionModel();
+                Pane selectedItem = (Pane) selectionModel.getSelectedItem();
+                // 对话信息
+                TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
+                Date msgDate = new Date();
+                String faceId = (String) label.getUserData();
+                faceInit.chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), faceId, 1, msgDate, true, true, false);
+                // 发送消息
+                faceInit.chatEvent.doSendMsg(faceInit.chatInit.userId, talkBoxData.getTalkId(), talkBoxData.getTalkType(), faceId, 1, msgDate);
             });
         }
     }

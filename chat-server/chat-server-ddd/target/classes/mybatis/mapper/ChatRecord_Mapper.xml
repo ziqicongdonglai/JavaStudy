@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.ziqicongdonglai.chat.infrastructure.dao.IChatRecordDao">
+
+    <insert id="appendChatRecord" parameterType="io.github.ziqicongdonglai.chat.infrastructure.po.ChatRecord">
+        INSERT INTO chat_record
+        (user_id, friend_id, talk_type, msg_content, msg_type, msg_date, create_time, update_time)
+        VALUES (#{userId}, #{friendId}, #{talkType}, #{msgContent}, #{msgType}, #{msgDate}, now(), now())
+    </insert>
+
+    <select id="queryUserChatRecordList" parameterType="java.lang.String"
+            resultType="io.github.ziqicongdonglai.chat.infrastructure.po.ChatRecord">
+        SELECT user_id, friend_id, msg_content, msg_type, msg_date
+        FROM chat_record
+        where talk_type = 0 and (friend_id = #{talkId} and user_id = #{userId})
+           or (friend_id = #{userId} and user_id = #{talkId})
+        order by create_time desc
+        limit 10
+    </select>
+
+    <select id="queryGroupsChatRecordList" parameterType="java.lang.String"
+            resultType="io.github.ziqicongdonglai.chat.infrastructure.po.ChatRecord">
+        SELECT user_id, friend_id, msg_content, msg_type, msg_date
+        FROM chat_record
+        where talk_type = 1
+          and friend_id = #{talkId}
+        order by create_time desc
+        limit 10
+    </select>
+
+</mapper>

@@ -27,13 +27,13 @@ public class ChatEventDefine {
         chatInit.move();     //移动
         min();               // 最小化
         quit();              // 退出
-        this.barChat();
-        this.barFriend();
-        this.barLocation();
-        this.barSet();
+        barChat();
+        barFriend();
+        barLocation();
+        barSet();
         doEventTextSend();   // 发送消息事件[键盘]
         doEventTouchSend();  // 发送消息事件[按钮]
-        doEventToolFace(); // 处理表情框事件
+        doEventToolFace();   // 表情窗体
     }
 
     /**
@@ -53,54 +53,15 @@ public class ChatEventDefine {
      */
     private void quit() {
         chatInit.$("group_bar_chat_close", Button.class).setOnAction(event -> {
+            chatEvent.doQuit();
             chatInit.close();
             System.exit(0);
         });
         chatInit.$("group_bar_friend_close", Button.class).setOnAction(event -> {
+            chatEvent.doQuit();
             chatInit.close();
             System.exit(0);
         });
-    }
-
-    private void switchBarChat(Button barChat, Pane groupBarChat, boolean toggle) {
-        if (toggle) {
-            groupBarChat.setVisible(true);
-            barChat.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
-        } else {
-            groupBarChat.setVisible(false);
-            barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
-        }
-    }
-
-    private void switchBarFriend(Button barFriend, Pane groupBarFriend, boolean toggle) {
-        if (toggle) {
-            groupBarFriend.setVisible(true);
-            barFriend.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
-        } else {
-            groupBarFriend.setVisible(false);
-            barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
-
-        }
-    }
-
-    private void switchBarLocation(Button barLocation, Pane groupBarLocation, boolean toggle) {
-        if (toggle) {
-            groupBarLocation.setVisible(true);
-            barLocation.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
-        } else {
-            groupBarLocation.setVisible(false);
-            barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
-        }
-    }
-
-    private void switchBarSet(Button barSet, Pane groupBarSet, boolean toggle) {
-        if (toggle) {
-            groupBarSet.setVisible(true);
-            barSet.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
-        } else {
-            groupBarSet.setVisible(false);
-            barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
-        }
     }
 
     private void barChat() {
@@ -159,7 +120,7 @@ public class ChatEventDefine {
         Button barLocation = chatInit.$("barLocation", Button.class);
         Pane groupBarLocation = chatInit.$("groupBarLocation", Pane.class);
         barLocation.setOnAction(event -> {
-                    switchBarChat(chatInit.$("barChat", Button.class), chatInit.$("groupBarChat", Pane.class), false);
+                    switchBarChat(chatInit.$("barLocation", Button.class), chatInit.$("groupBarLocation", Pane.class), false);
                     switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
                     switchBarLocation(barLocation, groupBarLocation, true);
                     switchBarSet(chatInit.$("barSet", Button.class), chatInit.$("groupBarSet", Pane.class), false);
@@ -185,12 +146,12 @@ public class ChatEventDefine {
         Button barSet = chatInit.$("barSet", Button.class);
         Pane groupBarSet = chatInit.$("groupBarSet", Pane.class);
         barSet.setOnAction(event -> {
-            switchBarChat(chatInit.$("barChat", Button.class), chatInit.$("groupBarChat", Pane.class), false);
-            switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
-            switchBarLocation(chatInit.$("barLocation", Button.class), chatInit.$("groupBarLocation", Pane.class), false);
-            switchBarSet(barSet, groupBarSet, true);
-        });
-
+                    switchBarChat(chatInit.$("barLocation", Button.class), chatInit.$("groupBarLocation", Pane.class), false);
+                    switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
+                    switchBarLocation(chatInit.$("barLocation", Button.class), chatInit.$("groupBarLocation", Pane.class), false);
+                    switchBarSet(barSet, groupBarSet, true);
+                }
+        );
         barSet.setOnMouseEntered(event -> {
             boolean visible = groupBarSet.isVisible();
             if (visible) {
@@ -207,76 +168,45 @@ public class ChatEventDefine {
         });
     }
 
-    /**
-     * 发送消息
-     */
-    private void doEventTouchSend() {
-        Label touch_send = chatInit.$("touch_send", Label.class);
-        touch_send.setOnMousePressed(event -> {
-            doEventSendMsg();
-        });
-    }
-
-
-    /**
-     * 发送消息快捷键
-     */
-    private void doEventTextSend() {
-        TextArea txt_input = chatInit.$("txt_input", TextArea.class);
-        txt_input.setOnKeyPressed(event -> {
-            if (event.getCode().equals(KeyCode.ENTER)) {
-                doEventSendMsg();
-            }
-        });
-    }
-
-    private void doEventSendMsg() {
-        TextArea txt_input = chatInit.$("txt_input", TextArea.class);
-        MultipleSelectionModel selectionModel = chatInit.$("talkList", ListView.class).getSelectionModel();
-        Pane selectedItem = (Pane) selectionModel.getSelectedItem();
-        // 对话信息
-        TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
-        String msg = txt_input.getText();
-        if (null == msg || "".equals(msg) || "".equals(msg.trim())) {
-            return;
+    private void switchBarChat(Button barChat, Pane groupBarChat, boolean toggle) {
+        if (toggle) {
+            groupBarChat.setVisible(true);
+            barChat.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
+        } else {
+            groupBarChat.setVisible(false);
+            barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
         }
-        Date msgDate = new Date();
-        // 发送消息
-        System.out.println("发送消息：" + msg);
-        // 发送事件给自己添加消息
-        chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), msg, msgDate, true, true, false);
-        txt_input.clear();
     }
 
-    /**
-     * 处理表情框事件
-     */
-    private void doEventToolFace() {
-        FaceController face = new FaceController(chatInit, chatInit, chatEvent, chatMethod);
-        Button tool_face = chatInit.$("tool_face", Button.class);
-        tool_face.setOnMousePressed(event -> {
-            face.doShowFace(chatMethod.getToolFaceX(), chatMethod.getToolFaceY());
-        });
+    private void switchBarFriend(Button barFriend, Pane groupBarFriend, boolean toggle) {
+        if (toggle) {
+            groupBarFriend.setVisible(true);
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
+        } else {
+            groupBarFriend.setVisible(false);
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+
+        }
     }
 
-    /**
-     * 群组发送消息
-     *
-     * @param sendMsgButton 发送按钮
-     * @param groupId       群组id
-     * @param groupName     群组名称
-     * @param groupHead     群头像
-     */
-    public void doEventOpenFriendGroupSendMsg(Button sendMsgButton, String groupId, String groupName, String groupHead) {
-        sendMsgButton.setOnAction(event -> {
-            // 1. 添加群组到对话框
-            chatMethod.addTalkBox(0, 1, groupId, groupName, groupHead, null, null, true);
-            // 2. 切换到对话框窗口
-            switchBarChat(chatInit.$("barChat", Button.class), chatInit.$("groupBarChat", Pane.class), true);
-            switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
-            // 3. 事件处理；填充到对话框
-            System.out.println("事件处理:填充到对话框");
-        });
+    private void switchBarLocation(Button barLocation, Pane groupBarLocation, boolean toggle) {
+        if (toggle) {
+            groupBarLocation.setVisible(true);
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
+        } else {
+            groupBarLocation.setVisible(false);
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
+    }
+
+    private void switchBarSet(Button barSet, Pane groupBarSet, boolean toggle) {
+        if (toggle) {
+            groupBarSet.setVisible(true);
+            barSet.getGraphic().setStyle("-fx-icon-color:'#A8DC61'");
+        } else {
+            groupBarSet.setVisible(false);
+            barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
     }
 
     /**
@@ -296,7 +226,79 @@ public class ChatEventDefine {
             switchBarChat(chatInit.$("barChat", Button.class), chatInit.$("groupBarChat", Pane.class), true);
             switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
             // 3. 事件处理；填充到对话框
-            System.out.println("事件处理:填充到对话框");
+            //System.out.println("事件处理；填充到对话框");
+            chatEvent.doEventAddTalkUser(chatInit.userId, userFriendId);
         });
     }
+
+    /**
+     * 群组发送消息
+     *
+     * @param sendMsgButton 发送按钮
+     * @param groupId       群组id
+     * @param groupName     群组名称
+     * @param groupHead     群头像
+     */
+    public void doEventOpenFriendGroupSendMsg(Button sendMsgButton, String groupId, String groupName, String groupHead) {
+        sendMsgButton.setOnAction(event -> {
+            // 1. 添加群组到对话框
+            chatMethod.addTalkBox(0, 1, groupId, groupName, groupHead, null, null, true);
+            // 2. 切换到对话框窗口
+            switchBarChat(chatInit.$("barChat", Button.class), chatInit.$("groupBarChat", Pane.class), true);
+            switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
+            // 3. 事件处理；填充到对话框
+            //System.out.println("事件处理；填充到对话框");
+            chatEvent.doEventAddTalkGroup(chatInit.userId, groupId);
+        });
+    }
+
+    /**
+     * 发送消息[按钮]
+     */
+    private void doEventTouchSend() {
+        Label touchSend = chatInit.$("touch_send", Label.class);
+        touchSend.setOnMousePressed(event -> doEventSendMsg());
+    }
+
+    private void doEventSendMsg() {
+        TextArea txtInput = chatInit.$("txt_input", TextArea.class);
+        MultipleSelectionModel selectionModel = chatInit.$("talkList", ListView.class).getSelectionModel();
+        Pane selectedItem = (Pane) selectionModel.getSelectedItem();
+        // 对话信息
+        TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
+        String msg = txtInput.getText();
+        if (null == msg || "".equals(msg) || "".equals(msg.trim())) {
+            return;
+        }
+        Date msgDate = new Date();
+        // 发送消息
+        chatEvent.doSendMsg(chatInit.userId, talkBoxData.getTalkId(), talkBoxData.getTalkType(), msg, 0, msgDate);
+        // 发送事件给自己添加消息
+        chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), msg, 0, msgDate, true, true, false);
+        txtInput.clear();
+    }
+
+    /**
+     * 发送消息快捷键
+     */
+    private void doEventTextSend() {
+        TextArea txtInput = chatInit.$("txt_input", TextArea.class);
+        txtInput.setOnKeyPressed(event -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                doEventSendMsg();
+            }
+        });
+    }
+
+    /**
+     * 表情事件
+     */
+    private void doEventToolFace() {
+        FaceController face = new FaceController(chatInit, chatInit, chatEvent, chatMethod);
+        Button tool_face = chatInit.$("tool_face", Button.class);
+        tool_face.setOnMousePressed(event -> {
+            face.doShowFace(chatMethod.getToolFaceX(), chatMethod.getToolFaceY());
+        });
+    }
+
 }

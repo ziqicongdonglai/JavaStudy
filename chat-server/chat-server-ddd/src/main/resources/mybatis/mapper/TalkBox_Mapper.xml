@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.ziqicongdonglai.chat.infrastructure.dao.ITalkBoxDao">
+
+    <select id="queryTalkBoxList" parameterType="java.lang.String" resultType="io.github.ziqicongdonglai.chat.infrastructure.po.TalkBox">
+        select talk_id, talk_type
+        from talk_box
+        where user_id = #{userId}
+    </select>
+
+    <insert id="addTalkBox" parameterType="io.github.ziqicongdonglai.chat.infrastructure.po.TalkBox">
+        INSERT INTO talk_box
+            (user_id, talk_id, talk_type, create_time, update_time)
+        VALUES (#{userId}, #{talkId}, #{talkType}, now(), now())
+    </insert>
+
+    <delete id="deleteUserTalk" parameterType="java.lang.String">
+        delete
+        from talk_box
+        where user_id = #{userId}
+          and talk_id = #{talkId}
+    </delete>
+
+    <select id="queryTalkBox" parameterType="java.lang.String" resultType="io.github.ziqicongdonglai.chat.infrastructure.po.TalkBox">
+        select id
+        from talk_box
+        where user_id = #{userId}
+          and talk_id = #{talkId}
+    </select>
+
+    <select id="queryTalkBoxGroupsIdList" parameterType="java.lang.String" resultType="java.lang.String">
+        select talk_id
+        from talk_box
+        where talk_type = 1
+          and user_id = #{userId}
+    </select>
+
+</mapper>

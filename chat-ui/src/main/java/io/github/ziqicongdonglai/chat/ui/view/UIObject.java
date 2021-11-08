@@ -18,7 +18,7 @@ public abstract class UIObject extends Stage {
     private double xOffset;
     private double yOffset;
 
-    public <T> T $(String id,Class<T> clazz) {
+    public <T> T $(String id, Class<T> clazz) {
         return (T) root.lookup("#" + id);
     }
 
@@ -32,7 +32,6 @@ public abstract class UIObject extends Stage {
             root.setCursor(Cursor.CLOSED_HAND);
         });
         root.setOnMouseDragged(event -> {
-            System.out.println("移动窗体");
             setX(event.getScreenX() + xOffset);
             setY(event.getScreenY() + yOffset);
         });
@@ -40,6 +39,14 @@ public abstract class UIObject extends Stage {
             root.setCursor(Cursor.DEFAULT);
         });
     }
+
+    @SafeVarargs
+    public final void clearViewListSelectedAll(ListView<Pane>... listViews) {
+        for (ListView<Pane> listView : listViews) {
+            listView.getSelectionModel().clearSelection();
+        }
+    }
+
 
     public double x() {
         return getX();
@@ -66,12 +73,5 @@ public abstract class UIObject extends Stage {
      * 初始化事件定义：抽象方法
      */
     public abstract void initEventDefine();
-
-    @SafeVarargs
-    public final void clearViewListSelectedAll(ListView<Pane>... listViews) {
-        for (ListView<Pane> listView : listViews) {
-            listView.getSelectionModel().clearSelection();
-        }
-    }
 
 }

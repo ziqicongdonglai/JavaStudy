@@ -15,7 +15,7 @@
                 styleClass="bar">
             <graphic>
                 <StackedFontIcon iconSize="32">
-                    <FontIcon iconColor="#A8DC61" iconLiteral="mdi-comment-multiple-outline"/>
+                    <FontIcon iconColor="#9E99EE" iconLiteral="mdi-comment-multiple-outline"/>
                 </StackedFontIcon>
             </graphic>
         </Button>
@@ -78,7 +78,7 @@
         <Pane id="information" layoutX="314" layoutY="32" prefHeight="606" prefWidth="852">
             <Pane id="info_pane" prefHeight="44" prefWidth="852">
                 <Label id="info_more" layoutX="800" prefHeight="43" prefWidth="43"/>
-                <Label id="info_name" layoutX="40" layoutY="-8" prefHeight="40" prefWidth="400" text="InfinityX7"/>
+                <Label id="info_name" layoutX="40" layoutY="-8" prefHeight="40" prefWidth="400" text="username"/>
             </Pane>
             <Pane id="info_pane_box" layoutX="1" layoutY="45" prefHeight="560" prefWidth="850"
                   style="-fx-background-color:transparent;-fx-border-width:0;"/>

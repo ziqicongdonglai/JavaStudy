@@ -6,4 +6,7 @@ package io.github.ziqicongdonglai.chat.client.infrastructure.util;
  * @description
  */
 public class CacheUtil {
+
+    public static String userId = null;
+
 }

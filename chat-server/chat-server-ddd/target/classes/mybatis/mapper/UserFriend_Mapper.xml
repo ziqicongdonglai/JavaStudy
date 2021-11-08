@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.ziqicongdonglai.chat.infrastructure.dao.IUserFriendDao">
+
+    <insert id="addUserFriendList" parameterType="java.util.List">
+        insert into user_friend
+        ( user_id, user_friend_id, create_time, update_time ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.userId},
+            #{item.userFriendId},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+
+    <select id="queryUserFriendIdList" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT user_friend_id
+        FROM user_friend
+        where user_id = #{userId}
+    </select>
+
+    <select id="queryUserFriendById" parameterType="io.github.ziqicongdonglai.chat.infrastructure.po.UserFriend"
+            resultType="io.github.ziqicongdonglai.chat.infrastructure.po.UserFriend">
+        select user_friend_id
+        from user_friend
+        where user_id = #{userId}
+          and user_friend_id = #{userFriendId}
+    </select>
+
+</mapper>

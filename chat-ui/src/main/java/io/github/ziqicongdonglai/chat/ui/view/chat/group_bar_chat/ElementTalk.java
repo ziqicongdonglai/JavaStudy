@@ -1,5 +1,6 @@
 package io.github.ziqicongdonglai.chat.ui.view.chat.group_bar_chat;
 
+import io.github.ziqicongdonglai.chat.ui.param.AppConst;
 import io.github.ziqicongdonglai.chat.ui.util.DateUtil;
 import io.github.ziqicongdonglai.chat.ui.util.Ids;
 import io.github.ziqicongdonglai.chat.ui.view.chat.data.RemindCount;
@@ -143,10 +144,14 @@ public class ElementTalk {
 
     public void fillMsgSketch(String talkSketch, Date talkDate) {
         if (null != talkSketch) {
-            if (talkSketch.length() > 30) talkSketch = talkSketch.substring(0, 30);
+            if (talkSketch.length() > AppConst.TALK_SKETCH_LENGTH) {
+                talkSketch = talkSketch.substring(0, AppConst.TALK_SKETCH_LENGTH);
+            }
             msgSketch.setText(talkSketch);
         }
-        if (null == talkDate) talkDate = new Date();
+        if (null == talkDate) {
+            talkDate = new Date();
+        }
         // 格式化信息
         String talkSimpleDate = DateUtil.simpleDate(talkDate);
         msgData.setText(talkSimpleDate);

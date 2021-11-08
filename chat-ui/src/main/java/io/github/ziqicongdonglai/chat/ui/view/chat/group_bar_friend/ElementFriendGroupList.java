@@ -39,4 +39,5 @@ public class ElementFriendGroupList {
     public Pane pane() {
         return pane;
     }
+
 }

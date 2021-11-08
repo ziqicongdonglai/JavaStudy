@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.ziqicongdonglai.chat.infrastructure.dao.IUserDao">
+
+    <select id="queryUserPassword" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT user_password
+        FROM user
+        where user.user_id = #{userId}
+    </select>
+
+    <select id="queryUserById" parameterType="java.lang.String" resultType="io.github.ziqicongdonglai.chat.infrastructure.po.User">
+        select user_id, user_nick_name, user_head
+        from user
+        where user.user_id = #{userId}
+    </select>
+
+    <select id="queryFuzzyUserList" parameterType="java.lang.String"
+            resultType="io.github.ziqicongdonglai.chat.infrastructure.po.User">
+        select user_id, user_nick_name, user_head
+        from user
+        where user.user_id != #{userId}
+          and (user.user_id like #{searchKey} or user.user_nick_name like #{searchKey})
+        order by id desc
+        limit 10
+    </select>
+
+    <select id="queryChannelUserCount" parameterType="io.github.ziqicongdonglai.chat.domain.inet.model.ChannelUserReq"
+            resultType="java.lang.Long">
+        select count(id)
+        from user
+        <where>
+            <if test="null != userId">
+                and user.user_id = #{userId}
+            </if>
+            <if test="null != userNickName">
+                and user.user_nick_name like concat ('%',#{userNickName,jdbcType=VARCHAR},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="queryChannelUserList" parameterType="io.github.ziqicongdonglai.chat.domain.inet.model.ChannelUserReq"
+            resultType="io.github.ziqicongdonglai.chat.infrastructure.po.User">
+        select user_id, user_nick_name, user_head
+        from user
+        <where>
+            <if test="null != userId">
+                and user.user_id = #{userId}
+            </if>
+            <if test="null != userNickName">
+                and user.user_nick_name like concat ('%',#{userNickName,jdbcType=VARCHAR},'%')
+            </if>
+        </where>
+        order by id desc
+        limit #{pageStart},#{pageEnd}
+    </select>
+
+</mapper>

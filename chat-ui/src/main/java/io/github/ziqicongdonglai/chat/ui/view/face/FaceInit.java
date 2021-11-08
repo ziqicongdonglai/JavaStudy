@@ -25,7 +25,6 @@ public abstract class FaceInit extends UIObject {
 
     private static final String RESOURCE_NAME = "view/face/face.fxml";
 
-    public UIObject obj;
     public Pane rootPane;
     public ChatInit chatInit;
     public IChatEvent chatEvent;
@@ -45,7 +44,7 @@ public abstract class FaceInit extends UIObject {
         // 模态窗口
         initModality(Modality.APPLICATION_MODAL);
         initOwner(obj);
-        //初始化页面和事件
+        // 初始化页面和事件
         obtain();
         initView();
         initEventDefine();

@@ -61,7 +61,7 @@ public class ElementFriendNew {
         friendPane = new Pane();
         friendPane.setPrefSize(850, 560);
         friendPane.getStyleClass().add("friendNewPane");
-        ObservableList<Node> friendLuckPaneChildren = friendPane.getChildren();
+        ObservableList<Node> friendNewPaneChildren = friendPane.getChildren();
 
         friendSearch = new TextField();
         friendSearch.setPrefSize(600, 50);
@@ -70,15 +70,15 @@ public class ElementFriendNew {
         friendSearch.setPromptText("搜一搜");
         friendSearch.setPadding(new Insets(10));
         friendSearch.getStyleClass().add("friendNewSearch");
-        friendLuckPaneChildren.add(friendSearch);
+        friendNewPaneChildren.add(friendSearch);
 
         // 用户列表框[初始化，未装载]
         friendListView = new ListView<>();
-        friendListView.setId("friendLuckListView");
+        friendListView.setId("friendNewListView");
         friendListView.setPrefSize(850, 460);
         friendListView.setLayoutY(75);
         friendListView.getStyleClass().add("friendListView");
-        friendLuckPaneChildren.add(friendListView);
+        friendNewPaneChildren.add(friendListView);
 
     }
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>NettyServer</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../res/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../res/css/public.css" media="all">
+
+    <script src="../../res/lib/layui-v2.5.4/layui.js?v=1.0.4" charset="utf-8"></script>
+    <script src="../../res/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+
+    <script>
+        layui.use(['form', 'table'], function () {
+            const $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+
+            // 监听搜索操作
+            form.on('submit(data-search-btn)', function (data) {
+                //执行搜索重载
+                table.reload('currentTableId', {
+                    url: 'res/api/queryNettyServerInfo?',
+                    page: {
+                        curr: 1
+                    }
+                }, 'data');
+                return false;
+            });
+
+            // 事件操作
+            $(".data-add-btn").on("click", function () {
+                const checkTable = table.checkStatus('currentTableId');
+                if (null == checkTable) return;
+
+                const data = checkTable.data[0];
+
+                const instruct = {};
+                instruct.ip = data.ip;
+                instruct.schedulerServerId = data.schedulerServerId;
+                instruct.beanName = data.beanName;
+                instruct.methodName = data.methodName;
+                instruct.cron = data.cron;
+                instruct.status = 1;
+
+                $.ajax({
+                    type: 'post',
+                    url: 'res/api/pushInstruct',
+                    data: {
+                        json: JSON.stringify(instruct)
+                    },
+                    success: function (res) {
+                        if (res.code === 0) {
+                            layer.msg('启动成功');
+                            table.reload('currentTableId');
+                        } else {
+                            layer.msg('启动失败');
+                        }
+                    }
+                });
+
+            });
+
+            //监听表格复选框选择
+            table.on('checkbox(currentTableFilter)', function (obj) {
+                console.log(obj)
+            });
+
+            table.on('tool(currentTableFilter)', function (obj) {
+                const data = obj.data;
+                if (obj.event === 'edit') {
+                    layer.alert('编辑行：<br>' + JSON.stringify(data))
+                } else if (obj.event === 'delete') {
+                    layer.confirm('真的删除行么', function (index) {
+                        obj.del();
+                        layer.close(index);
+                    });
+                }
+            });
+
+        });
+
+        menu = {};
+
+        util = {
+            statusInfo: function (d) {
+                if (d.status === true) return '<span style="color: #5FB878;font-weight: bolder;">启动</span>';
+                if (d.status === false) return '<span style="color: #b8000e;font-weight: bolder;">关闭</span>';
+            },
+            formatDate: function (d) {
+                return layui.util.toDateString(d.entranceDate, 'yyyy-MM-dd HH:mm:ss');
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="layui-elem-field layuimini-search">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+</div>
+<table class="layui-table"
+       lay-data="{height: 'full', cellMinWidth: 80, page: true, limit:15, url:'http://localhost:8081/api/queryNettyServerInfo'}">
+    <thead>
+    <tr>
+        <th lay-data="{type:'checkbox'}"></th>
+        <th lay-data="{field:'ip', align: 'left' }">IP</th>
+        <th lay-data="{field:'port', align: 'left'}">端口</th>
+        <th lay-data="{field:'status', width:80, align: 'center', templet: util.statusInfo }">状态</th>
+    </tr>
+    </thead>
+</table>
+
+</body>
+</html>
