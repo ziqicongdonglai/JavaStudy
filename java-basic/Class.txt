@@ -1,0 +1,2 @@
+className=io.github.ziqicongdonglai.java.basic.reflection.Person
+methodName=getPerson
